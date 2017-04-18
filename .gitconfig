@@ -1,0 +1,9 @@
+[user]
+
+
+[alias]
+    st = status
+	showlog = log --all --graph --decorate --oneline
+	ls = log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	ll = log --decorate --all --abbrev-commit --oneline --graph --stat
+	last = log -1 --abbrev-commitalias]
