@@ -1,5 +1,6 @@
 [user]
-
+    name = "antoine zimmermann"
+    email = "antoine.zimmermann@mobilespot.com"
 
 [alias]
     st = status
