@@ -9,3 +9,5 @@
 	ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ll = log --decorate --all --abbrev-commit --oneline --graph --stat
 	last = log -1 --abbrev-commit
+[core]
+	editor = vim
