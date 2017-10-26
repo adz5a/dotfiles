@@ -6,6 +6,9 @@
   st = status
   s = status
   c = commit
+  d = diff
+  ds = diff --staged
+  p = push
   showlog = log --all --graph --decorate --oneline
   la = log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
