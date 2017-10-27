@@ -5,6 +5,7 @@
 [alias]
   st = status
   s = status
+  a = add
   c = commit
   d = diff
   ds = diff --staged
@@ -14,5 +15,6 @@
   ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   ll = log --decorate --all --abbrev-commit --oneline --graph --stat
   last = log -1 --abbrev-commit
+  rh = reset --hard HEAD~
 [core]
 	editor = vim
