@@ -1,7 +1,3 @@
-[user]
-    name = "antoine zimmermann"
-    email = "antoine.zimmermann@webedia-group.com"
-
 [alias]
   st = status
   s = status
@@ -19,3 +15,6 @@
   l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	editor = vim
+[user]
+	name = adz5a
+	email = slindir@gmail.com
