@@ -1,5 +1,18 @@
 # README
 
+## Installation
+
+```bash
+
+cd && git clone git@github.com:adz5a/configs.git dotfiles
+cd dotfiles
+git submodule init
+git submodule update
+
+```
+
+Add the following in your `.bashrc`.
+
 ```bash
 
 # in interactive mode load custom settings
