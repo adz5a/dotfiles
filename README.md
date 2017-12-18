@@ -1,5 +1,11 @@
 # README
 
+## Terminal
+
+Use colors
+- Background color #00434C
+- Font : Monospace Regular, 11
+
 ## Installation
 
 ```bash
