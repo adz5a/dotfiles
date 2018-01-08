@@ -35,3 +35,11 @@ For system wide git config installation
 sudo ln -s ~/dotfiles/.gitconfig /etc/.gitconfig
 
 ```
+
+Git global ignore
+
+```bash
+
+git config --global core.excludefile path/to/global_gitignore
+
+```
