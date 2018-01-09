@@ -2,6 +2,6 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 
 # Read a .md file and output in terminal
 # needs pandoc & lynx globally available
-read-markdown () {
+md () {
     pandoc $1 | lynx -stdin
 }
