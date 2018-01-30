@@ -43,3 +43,9 @@ Git global ignore
 git config --global core.excludefile path/to/global_gitignore
 
 ```
+
+## Remove caps lock
+
+```bash
+xmodmap -e "keycode 66 = Shift_L NoSymbol Shift_L" 
+```
