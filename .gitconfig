@@ -13,8 +13,7 @@
   last = log --decorate -1 --abbrev-commit
   rsh = reset --soft HEAD~
   l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  rdiff = "! git --git-dir=\"$(git rev-parse --show-toplevel)\"/.git diff"
 [core]
 	editor = vim
 [user]
-	email = antoine.zimmermann@webedia-group.com
-	name = antoinezimmermann
