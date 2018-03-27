@@ -1,19 +1,20 @@
 [alias]
-  st = status
-  s = status
-  a = add
-  c = commit
-  d = diff
-  ds = diff --staged
-  p = push
-  showlog = log --all --graph --decorate --oneline
-  la = log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  ll = log --decorate --all --abbrev-commit --oneline --graph --stat
-  last = log --decorate -1 --abbrev-commit
-  rsh = reset --soft HEAD~
-  ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status
-  l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  rdiff = "! git --git-dir=\"$(git rev-parse --show-toplevel)\"/.git diff"
+    st = status
+    s = status
+    a = add
+    c = commit
+    d = diff
+    ds = diff --staged
+    p = push
+    showlog = log --all --graph --decorate --oneline
+    la = log --graph --all --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    ll = log --decorate --all --abbrev-commit --oneline --graph --stat
+    last = log --decorate -1 --abbrev-commit
+    rsh = reset --soft HEAD~
+    ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status
+    l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    rdiff = "! git --git-dir=\"$(git rev-parse --show-toplevel)\"/.git diff"
 [core]
-	editor = vim
+    editor = vim
+    pager = "diff-so-fancy | less --tabs=4 -RFX"
 [user]
