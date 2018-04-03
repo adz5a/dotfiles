@@ -3,7 +3,7 @@ SESSION=dotfiles
 
 install:
 	if [ -d $(HOME)/bin ]; then \
-		ln -s $(PWD)/diff-so-fancy $(HOME)/bin/diff-so-fancy;\
+		ln -s $(PWD)/diff-so-fancy/diff-so-fancy $(HOME)/bin/diff-so-fancy;\
 	fi
 
 vim-install:
