@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e # will exit script if any command exit with non zero code
+dir="`git rev-parse --git-dir`" # git director
+trap 'rm -f "$dir/$$.tags"' EXIT # prevent termination using signals (ie C-c), exits manually
+
+# generates ctags for git tracked files and write it inside the git folder
+# and write it as 'tags'
+git ls-files | \
+  ctags --tag-relative -L - -f"$dir/$$.tags" 
+mv "$dir/$$.tags" "$dir/tags"
