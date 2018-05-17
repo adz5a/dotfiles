@@ -8,4 +8,4 @@ trap 'rm -f "$dir/$$.tags"' EXIT # prevent termination using signals (ie C-c), e
 # and write it as 'tags'
 git ls-files | \
   ctags -L - -f"$dir/$$.tags" 
-mv "$dir/$$.tags" "$dir/../tags" # will write at the root of the project
+mv "$dir/$$.tags" "$dir/tags" # will write at the root of the project
