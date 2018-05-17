@@ -28,24 +28,19 @@ Add the following in your `.bashrc`.
 
 ```
 
-For system wide git config installation
-
-```bash
-
-sudo ln -s ~/dotfiles/.gitconfig /etc/.gitconfig
-
-```
-
-Git global ignore
-
-```bash
-
-git config --global core.excludefile path/to/global_gitignore
-
-```
 
 ## Remove caps lock and remap to escape
 
 ```bash
 xmodmap -e "clear Lock" -e "keycode 66 = Escape Escape Escape"
 ```
+
+## Ctags
+
+You need to have `exuberant-ctags` (or any alternatives that proves the `ctags`
+command).
+
+## Git template
+
+This repo contains (and symlinks to ~) a `git_template` dir. It can be used as
+the value for the `--template` argument in `git init` and `git clone`.
