@@ -16,3 +16,6 @@ upgrade:
 
 workspace:
 	tmux new-session -s $(SESSION) -n main
+
+install-ctags-lib:
+	apt install lcov binutils-mingw-w64-i686 gcc-mingw-w64-i686 libjansson-dev libyaml-dev - libseccomp-dev

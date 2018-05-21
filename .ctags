@@ -23,4 +23,4 @@
 --langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cf-v
 
 # JS
---langmap=Javascript:.js.jsx
+--langmap=Javascript:+.jsx
