@@ -5,3 +5,22 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 md () {
     pandoc $1 | lynx -stdin
 }
+
+# tmux new session
+tns () {
+    SESSION=$1
+    WINDOW=$2
+
+    if [ -z $SESSION ]
+    then
+        echo 'please specify a session name as first argument'
+        exit 1
+    fi
+
+    if [ -z $WINDOW ]
+    then
+        WINDOW='main'
+    fi
+
+    tmux new-session -s $SESSION -n $WINDOW
+}
