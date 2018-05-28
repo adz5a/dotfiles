@@ -1,5 +1,5 @@
+#!/bin/sh
 export HISTTIMEFORMAT="%d/%m/%y %T "
-
 # Read a .md file and output in terminal
 # needs pandoc & lynx globally available
 md () {
@@ -23,4 +23,12 @@ tns () {
     fi
 
     tmux new-session -s $SESSION -n $WINDOW
+}
+
+tl-v () {
+    tmux select-layout even-vertical
+}
+
+tl-h () {
+    tmux select-layout even-horizontal
 }
