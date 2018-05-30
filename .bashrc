@@ -32,3 +32,13 @@ tl-v () {
 tl-h () {
     tmux select-layout even-horizontal
 }
+
+tsc () {
+    $SESSION=$1
+
+    if [ -z $SESSION ]
+    then
+        echo 'Please specify a session name / id as per the tmux switch-session command'
+    fi
+    tmux switch-client -t $SESSION
+}
