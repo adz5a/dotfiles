@@ -1,7 +1,9 @@
+set -eu
+
 # Script to help installing this repo to create a new workstation easely. This
 # script must be called with an argument: install|uninstall.
 
-dotfiles='.gitconfig git_template .tmux.conf .ctags'
+dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc'
 startup_files='.bashrc .profile'
 
 install () {
@@ -19,11 +21,22 @@ install () {
         ln -s $PWD/$f $HOME/$f
     done
 
+    # install vim runtime files and plugins.
+    # plugins are managed from this repo
+    mkdir -p $HOME/.vim/autoload
+    ln -s $PWD/bundle $HOME/.vim/bundle
+    ln -s $PWD/ftplugin $HOME/.vim/ftplugin
+    ln -s $PWD/vim-pathogen/autoload/pathogen.vim $HOME/.vim/autoload/pathogen.vim 
+
+
     # for each of those dotfiles, append its content into the user's
     # correspondig file. A control sequence could be used to enable easy removal
     for f in $startup_files
     do
-        cat $PWD/$f >> $HOME/$f
+        echo '### custom ###' >> $HOME/$f
+        echo "CONFIG_HOME=$PWD" >> $HOME/$f
+        echo "source $PWD/$f" >> $HOME/$f
+        echo '###' >> $HOME/$f
     done
 
 }
