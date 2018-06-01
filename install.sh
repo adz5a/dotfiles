@@ -4,7 +4,7 @@ set -eu
 # script must be called with an argument: install|uninstall.
 
 dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc'
-startup_files='.bashrc .profile'
+startup_files='.bashrc .profile .bash_aliases'
 
 install () {
 
