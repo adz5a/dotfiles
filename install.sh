@@ -34,7 +34,7 @@ install () {
     for f in $startup_files
     do
         echo '### custom ###' >> $HOME/$f
-        echo "CONFIG_HOME=$PWD" >> $HOME/$f
+        echo "export CONFIG_HOME=$PWD" >> $HOME/$f
         echo "source $PWD/$f" >> $HOME/$f
         echo '###' >> $HOME/$f
     done
