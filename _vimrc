@@ -305,3 +305,9 @@ function! GitBranch (...)
 
 endfunction
 command! -nargs=1 Gbranch call GitBranch(<f-args>)
+
+function! Gstage ()
+    exe "Gwrite"
+    exe "e"
+endfunction
+command! -nargs=0 W call Gstage()
