@@ -258,7 +258,7 @@ command! -nargs=1 Find call FindFiles(<q-args>)
 " This Command is provided by vim-fugitive which
 " should be installed
 fun! GitShow(hash)
-    exe "Glog " . a:hash . "~..." . a:hash . " --"
+    exe "Git! show --abbrev --name-only " . a:hash
 endfun
 command! -nargs=1 Gshow call GitShow(<q-args>)
 
@@ -294,7 +294,7 @@ command! -nargs=+ Context call ListContext(<f-args>)
 " Will select the tags for the symbol under the cursor
 function! SelectTags ()
     let l:current_word = expand("<cword>")
-    exe "tselect " . l:current_word
+    exe "stselect " . l:current_word
 endfunction
 
 nnoremap <Leader>a :call SelectTags() <CR>
@@ -304,7 +304,7 @@ function! GitBranch (...)
     exe "Git! branch " . join(a:000, " ")
 
 endfunction
-command! -nargs=1 Gbranch call GitBranch(<f-args>)
+command! -nargs=* Gbranch call GitBranch(<f-args>)
 
 function! Gstage ()
     exe "Gwrite"
