@@ -140,7 +140,7 @@ nnoremap <Leader>r :call ToggleScrollOffset()<CR>
 
 function! ToggleScrollOffset()
   if &scrolloff > 10
-    set scrolloff=0
+    set scrolloff=1
   else
     set scrolloff=500
   endif
