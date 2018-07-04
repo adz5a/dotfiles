@@ -36,7 +36,7 @@ install () {
         echo '### custom ###' >> $HOME/$f
         echo "export CONFIG_HOME=$PWD" >> $HOME/$f
         echo "source $PWD/$f" >> $HOME/$f
-        echo '###' >> $HOME/$f
+        echo '### end custom ###' >> $HOME/$f
     done
 
 }
@@ -54,6 +54,11 @@ uninstall () {
         rm $HOME/$f
     done
 
+    # remove script loading in startup files
+    for f in $startup_files
+    do
+        sed '/### custom ###/, /### end custom ###/d' $HOME/$f -i
+    done
 }
 
 # will remove dotfiles found in the ~ and replace them with the current version
