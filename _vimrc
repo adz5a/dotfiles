@@ -192,8 +192,9 @@ noremap <silent> <Leader>J :cnext<CR>
 
 "open command list
 noremap <silent> <Leader>q q:
-noremap <silent> <Leader>q? q?
-noremap <silent> <Leader>q/ q/
+noremap <silent> <Leader>? q?
+noremap <silent> <Leader>/ q/
+noremap <silent> q: <NOP>
 
 "%
 noremap <silent> <Leader>ù %
@@ -215,7 +216,7 @@ noremap <Leader>C :set nolist<CR>
 " Remove autocmd when using grep to speed things up
 fun! FastGrep (...)
     let l:current_filetype = &filetype
-    let l:mappings = [ "php", "js", "vim", "css", "scss", "twig" ]
+    let l:mappings = [ "php", "js", "vim", "css", "scss", "twig", "html" ]
     let l:searchpath = ""
 
     if a:0 == 0
