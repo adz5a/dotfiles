@@ -196,6 +196,11 @@ noremap <silent> <Leader>? q?
 noremap <silent> <Leader>/ q/
 noremap <silent> q: <NOP>
 
+"spell checking
+" When cursor is on a mispelled word, this will replace it
+" with the first proposition.
+noremap <silent> <Leader>z 1z=
+
 "%
 noremap <silent> <Leader>ù %
 
