@@ -317,3 +317,5 @@ function! Gstage ()
     exe "e"
 endfunction
 command! -nargs=0 W call Gstage()
+
+command! -nargs=0 S call system("xclip -sel clip -i", getreg("+"))
