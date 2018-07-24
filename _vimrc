@@ -13,11 +13,11 @@ let g:jsx_ext_required = 0
 
 "PATH CONFIGURATION
 set path=$PWD/**
-set wildignore+=**/node_modules/** "plz don't :find inside the node_modules
-set wildignore+=**/out/**
-set wildignore+=**/dist/**
-set wildignore+=**/build/**
-set wildignore+=**/.git/objects/**
+set wildignore+=node_modules "plz don't :find inside the node_modules
+set wildignore+=out
+set wildignore+=dist
+set wildignore+=build
+set wildignore+=.git/objects
 
 
 set tags+=./.git/tags
@@ -218,36 +218,43 @@ noremap <Leader>C :set nolist<CR>
 :command! Standup Glog -1 --
 " END MAPPINGS
 
-" Remove autocmd when using grep to speed things up
-fun! FastGrep (...)
+" use the `ag` program to search file contents.
+fun! FastGrep (pattern, ...)
+    " by default search everywhere
+    let l:path = './**' 
     let l:current_filetype = &filetype
     let l:mappings = [ "php", "js", "vim", "css", "scss", "twig", "html" ]
-    let l:searchpath = ""
+    echo a:1
 
     if a:0 == 0
-        echo "Please specify a pattern to match"
-        return ""
-    elseif a:0 == 1
-        let l:searchpath = "**/*." . l:current_filetype
+        let l:path = "**/*." . l:current_filetype
     else
         for ft in l:mappings
             " case insensitive equality comparison
-            if a:2 ==? ft
-                let l:searchpath = "**/*." . ft
+            if a:1 ==? ft
+                let l:path = "**/*." . ft
+                echo l:path
             endif
         endfor
 
-        if l:searchpath == ""
-            let l:searchpath = a:2
+        if l:path == ""
+            echo "yolo"
+            let l:path = a:1
         endif
     endif
-    " echo "noautocmd vim /" . a:1 . "/ " . l:searchpath
-    exe "noautocmd vim /" . a:1 . "/ " . l:searchpath
-    exe "e"
-    exe "copen"
+
+    let error_file = tempname()
+    let l:ignore_pattern = split(&wildignore, ",")
+    call map(l:ignore_pattern, "'--ignore ' . v:val")
+
+    exe "!ag --vimgrep  " . join(l:ignore_pattern, ' ') . ' ' . a:pattern . ' ' . l:path . ' > ' . error_file
+    exe "cfile ". error_file
 endfun
 
 command! -nargs=* Vim call FastGrep(<f-args>)
+
+" sudo apt install silversearch-ag for this to work
+set grepprg=ag\ --nocolor\ --vimgrep
 
 " find files and populate the quickfix list
 fun! FindFiles(filename)
