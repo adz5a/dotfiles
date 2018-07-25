@@ -13,11 +13,11 @@ let g:jsx_ext_required = 0
 
 "PATH CONFIGURATION
 set path=$PWD/**
-set wildignore+=**/node_modules/** "plz don't :find inside the node_modules
-set wildignore+=**/out/**
-set wildignore+=**/dist/**
-set wildignore+=**/build/**
-set wildignore+=**/.git/objects/**
+set wildignore+=node_modules "plz don't :find inside the node_modules
+set wildignore+=out
+set wildignore+=dist
+set wildignore+=build
+set wildignore+=.git/objects
 
 
 set tags+=./.git/tags
@@ -248,6 +248,11 @@ fun! FastGrep (...)
 endfun
 
 command! -nargs=* Vim call FastGrep(<f-args>)
+if executable('ag')
+    let ignore_list = split(&wildignore, ',')
+    call map(g:ignore_list, '"--ignore\\ " . v:val')
+    exe 'set grepprg=ag\ --nocolor\ --vimgrep\ ' . join(ignore_list, '\ ')
+endif
 
 " find files and populate the quickfix list
 fun! FindFiles(filename)
