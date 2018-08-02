@@ -18,6 +18,11 @@
     l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     rdiff = "! git --git-dir=\"$(git rev-parse --show-toplevel)\"/.git diff"
     ctags = !.git/hooks/ctags
+    # print dangling commits (unreachable) that used to be refs (such as HEAD /
+    # master).
+    # This command can be used in combination with gitk --all to use the git
+    # gui.
+    fuck = "!git fsck --no-reflogs | awk '/dangling commit/ {print $3}'"
 [core]
     editor = vim
     pager = "diff-so-fancy | less --tabs=4 -RFX"
