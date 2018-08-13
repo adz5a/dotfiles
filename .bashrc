@@ -91,7 +91,7 @@ Jobs="\j"
 PathColor=$Yellow
 InGitPathColor=$BYellow
 
-source $CONFIG_HOME/liquidprompt/liquidprompt
+source "$CONFIG_HOME/liquidprompt/liquidprompt"
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
 # Read a .md file and output in terminal
@@ -107,8 +107,8 @@ tns () {
 
     if [ -z $SESSION ]
     then
-        echo 'please specify a session name as first argument'
-        exit 1
+        echo 'Usage: tns session-name [window-name]'
+        return
     fi
 
     if [ -z $WINDOW ]
