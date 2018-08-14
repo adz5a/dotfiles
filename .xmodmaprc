@@ -1,0 +1,15 @@
+! Run with `xmodmap .xmodmaprc`
+! deactivate Caps lock on ubuntu
+clear Lock
+! F-X keys
+keycode 66 = Escape Escape Escape
+keycode 10 = exclam 1 1 exclam
+keycode 11 = quotedbl 2 2 at
+keycode 12 = sterling 3 3 numbersign
+keycode 13 = dollar 4 4 dollar
+keycode 14 = percent 5 5 percent
+keycode 15 = asciicircum 6 6 asciicircum dead_circumflex dead_circumflex dead_circumflex
+keycode 16 = ampersand 7 7 ampersand
+keycode 17 = asterisk 8 8 asterisk
+keycode 18 = parenleft 9 9 parenleft dead_grave NoSymbol dead_grave
+keycode 19 = parenright 0 0 parenright

@@ -91,6 +91,8 @@ Jobs="\j"
 PathColor=$Yellow
 InGitPathColor=$BYellow
 
+export PATH="$PATH:$HOME/bin:/$HOME/.yarn/bin"
+
 source "$CONFIG_HOME/liquidprompt/liquidprompt"
 
 export HISTTIMEFORMAT="%d/%m/%y %T "
