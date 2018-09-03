@@ -91,11 +91,11 @@ Jobs="\j"
 PathColor=$Yellow
 InGitPathColor=$BYellow
 
-export PATH="$PATH:$HOME/bin:/$HOME/.yarn/bin"
+#### CUSTOM FUNCTION DEFINITION
+###############################
 
 source "$CONFIG_HOME/liquidprompt/liquidprompt"
 
-export HISTTIMEFORMAT="%d/%m/%y %T "
 # Read a .md file and output in terminal
 # needs pandoc & lynx globally available
 md () {

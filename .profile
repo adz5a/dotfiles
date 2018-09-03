@@ -1,2 +1,3 @@
-# Remap some keys
-xmodmap "$CONFIG_HOME/.xmodmaprc"
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+export PATH="$PATH:$HOME/bin:/$HOME/.yarn/bin"
