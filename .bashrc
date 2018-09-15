@@ -96,11 +96,6 @@ InGitPathColor=$BYellow
 
 source "$CONFIG_HOME/liquidprompt/liquidprompt"
 
-if [ -z $CUSTOM_LAYOUT_ENABLED ]
-then
-    xmodmap $CONFIG_HOME/.xmodmaprc
-    export CUSTOM_LAYOUT_ENABLED=true
-fi
 
 # Read a .md file and output in terminal
 # needs pandoc & lynx globally available
@@ -143,4 +138,8 @@ tsc () {
         echo 'Please specify a session name / id as per the tmux switch-session command'
     fi
     tmux switch-client -t $SESSION
+}
+
+set_custom_layout () {
+    xmodmap $CONFIG_HOME/.xmodmaprc
 }

@@ -37,7 +37,7 @@ xmodmap -e "clear Lock" -e "keycode 66 = Escape Escape Escape"
 
 ## Ctags
 
-You need to have `exuberant-ctags` (or any alternatives that proves the `ctags`
+You need to have `exuberant-ctags` (or any alternatives that provides the `ctags`
 command).
 
 ## Git template
