@@ -303,12 +303,19 @@ endfunction
 command! -nargs=+ Context call ListContext(<f-args>)
 
 " Will select the tags for the symbol under the cursor
-function! SelectTags ()
+function! SelectTags (split)
     let l:current_word = expand("<cword>")
-    exe "stselect " . l:current_word
+    if a:split > 0
+        exe "stselect " . l:current_word
+    else
+        exe "tselect " . l:current_word
+    endif
 endfunction
 
-nnoremap <Leader>a :call SelectTags() <CR>
+" Jump to the symbole under the cursor declaration
+nnoremap <Leader>a :call SelectTags(0) <CR>
+" Jump to the symbole under the cursor declaration in a new split
+nnoremap <Leader>A :call SelectTags(1) <CR>
 
 function! GitBranch (...)
 
