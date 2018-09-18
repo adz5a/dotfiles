@@ -28,7 +28,7 @@ set cursorline
 set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
 set encoding=utf-8
-colorscheme ron
+colorscheme hybrid_material
 set number
 set relativenumber
 set scrolloff=0
@@ -195,6 +195,10 @@ noremap <silent> <Leader>q q:
 noremap <silent> <Leader>? q?
 noremap <silent> <Leader>/ q/
 noremap <silent> q: <NOP>
+
+"write file
+noremap <silent> <Leader>w :w<CR>
+noremap <silent> <Leader>W :Gwrite<CR>
 
 "spell checking
 " When cursor is on a mispelled word, this will replace it
