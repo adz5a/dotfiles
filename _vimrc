@@ -55,7 +55,7 @@ fun! RefreshStatusLineColor ()
     " display status line with red font
     hi StatusLine ctermfg=1                      
 endfun
-call RefreshStatusLineColor()
+" call RefreshStatusLineColor()
 command! RefreshStatusLine call RefreshStatusLineColor()
 
 "enhance vim responsiveness when pressing ESC
