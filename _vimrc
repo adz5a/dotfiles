@@ -198,8 +198,8 @@ noremap <silent> <Leader>/ q/
 noremap <silent> q: <NOP>
 
 "write file
-noremap <silent> <Leader>w :w<CR>
-noremap <silent> <Leader>W :Gwrite<CR>
+noremap <Leader>w :w<CR>
+noremap <Leader>W :Gwrite<CR>
 
 "spell checking
 " When cursor is on a mispelled word, this will replace it
@@ -226,7 +226,7 @@ noremap <Leader>C :set nolist<CR>
 " Remove autocmd when using grep to speed things up
 fun! FastGrep (...)
     let l:current_filetype = &filetype
-    let l:mappings = [ "php", "js", "vim", "css", "scss", "twig", "html" ]
+    let l:mappings = [ 'php', 'js', 'vim', 'css', 'scss', 'twig', 'html', 'sql', '*', 'md' ]
     let l:searchpath = ""
 
     if a:0 == 0
