@@ -24,7 +24,7 @@ set tags+=./.git/tags
 
 "GENERAL EDITOR CONFIG
 set t_Co=256
-set cursorline
+" set cursorline
 set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
 set encoding=utf-8
@@ -171,9 +171,8 @@ noremap <Leader>B [{%
 noremap <silent> <Leader>p [(<ESC>%
 noremap <silent> <Leader>P )]<ESC>
 
-noremap <silent> <Leader>v :Vex<CR>
-noremap <silent> <Leader>V :vs<CR>
-noremap <silent> <Leader>e :Ex<CR>
+noremap <silent> <Leader>e :e!<CR>
+noremap <silent> <Leader>R :redraw!<CR>
 
 "Yank
 noremap <silent> Y y$
