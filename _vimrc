@@ -28,8 +28,8 @@ set t_Co=256
 set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
 set encoding=utf-8
-set background=dark
 colorscheme hybrid_material
+set background=dark
 set number
 set relativenumber
 set scrolloff=0
