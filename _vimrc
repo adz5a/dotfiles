@@ -51,6 +51,8 @@ set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
+set errorformat=%f:%l:%m
+
 fun! RefreshStatusLineColor ()
     " display status line with red font
     hi StatusLine ctermfg=1                      
@@ -224,45 +226,58 @@ noremap <Leader>C :set nolist<CR>
 
 " Remove autocmd when using grep to speed things up
 fun! FastGrep (...)
+    let l:quote = "'"
     let l:current_filetype = &filetype
     let l:mappings = [ 'php', 'js', 'vim', 'css', 'scss', 'twig', 'html', 'sql', '*', 'md' ]
     let l:searchpath = ""
+
+    " handle the different grep program
+    if g:GREP_PROGRAM ==? "grep"
+        let l:include = "--include"
+    elseif g:GREP_PROGRAM ==? "rg"
+        let l:include = "--iglob"
+    endif
 
     if a:0 == 0
         echo "Please specify a pattern to match"
         return ""
     elseif a:0 == 1
-        let l:searchpath = "**/*." . l:current_filetype
+        " By default if no path are specified search only for the current
+        " filetype
+        " Use the * option to search in every file
+        let l:searchpath = "--iglob " . l:quote . "**/*."  . l:current_filetype . l:quote
     else
+        " If a path is specified, search if it is in the 'mappings' list
         for ft in l:mappings
             " case insensitive equality comparison
             if a:2 ==? ft
-                let l:searchpath = "**/*." . ft
+                let l:searchpath = "--iglob " . l:quote . "**/*." . ft . l:quote
             endif
         endfor
 
+        " If not in the 'mappings' then just use the second argument as it
+        " was given.
         if l:searchpath == ""
-            let l:searchpath = a:2
+            let l:searchpath = "--iglob " . l:quote . a:2 . l:quote
         endif
     endif
-    " echo "noautocmd vim /" . a:1 . "/ " . l:searchpath
-    exe "noautocmd vim /" . a:1 . "/ " . l:searchpath
-    exe "e"
-    exe "copen"
+
+    exe "grep '" . a:1 . "' " . l:searchpath
 endfun
 
 command! -nargs=* Vim call FastGrep(<f-args>)
-if executable('ag')
-    let ignore_list = split(&wildignore, ',')
-    call map(g:ignore_list, '"--ignore\\ " . v:val')
-    exe 'set grepprg=ag\ --nocolor\ --vimgrep\ ' . join(ignore_list, '\ ')
+if executable('rg')
+    let g:GREP_PROGRAM = "rg"
+    set grepprg=rg\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m " Not handling column atm
+else 
+    let g:GREP_PROGRAM = "grep$*"
 endif
 
 " find files and populate the quickfix list
 fun! FindFiles(filename)
     let error_file = tempname()
     silent! exe '!find . -not \( -path "'. join(split(&wildignore, ","), '" -o -path "') .'" \)| grep "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
-    set errorformat=%f:%l:%m
     exe "cfile ". error_file
     copen
     redraw!
