@@ -224,12 +224,19 @@ noremap <Leader>C :set nolist<CR>
 :command! Standup Glog -1 --
 " END MAPPINGS
 
-" Remove autocmd when using grep to speed things up
-fun! FastGrep (...)
+if executable('rg')
+    let g:GREP_PROGRAM = "rg"
+    set grepprg=rg\ --vimgrep
+    set grepformat=%f:%l:%c:%m " Not handling column atm
+else 
+    let g:GREP_PROGRAM = "grep"
+endif
+
+fun! FastGrep (pattern,...)
     let l:quote = "'"
     let l:current_filetype = &filetype
     let l:mappings = [ 'php', 'js', 'vim', 'css', 'scss', 'twig', 'html', 'sql', '*', 'md' ]
-    let l:searchpath = ""
+    let l:searchoptions = ""
 
     " handle the different grep program
     if g:GREP_PROGRAM ==? "grep"
@@ -238,41 +245,38 @@ fun! FastGrep (...)
         let l:include = "--iglob"
     endif
 
+    " Find searchoptions depending on number of arguments which the function was
+    " called :
+    " 1 argument : assume you want to search on the current filetype
+    " 2 argument : use it to determine the filetype
     if a:0 == 0
-        echo "Please specify a pattern to match"
-        return ""
-    elseif a:0 == 1
         " By default if no path are specified search only for the current
         " filetype
         " Use the * option to search in every file
-        let l:searchpath = "--iglob " . l:quote . "**/*."  . l:current_filetype . l:quote
+        let l:searchoptions = l:include . " " . l:quote . "**/*."  . l:current_filetype . l:quote
     else
         " If a path is specified, search if it is in the 'mappings' list
         for ft in l:mappings
             " case insensitive equality comparison
-            if a:2 ==? ft
-                let l:searchpath = "--iglob " . l:quote . "**/*." . ft . l:quote
+            if a:1 ==? ft
+                let l:searchoptions = l:include . " " . l:quote . "**/*." . ft . l:quote
             endif
         endfor
 
         " If not in the 'mappings' then just use the second argument as it
         " was given.
-        if l:searchpath == ""
-            let l:searchpath = "--iglob " . l:quote . a:2 . l:quote
+        if l:searchoptions == ""
+            let l:searchoptions = l:include . " " . l:quote . a:1 . l:quote
         endif
     endif
 
-    exe "grep '" . a:1 . "' " . l:searchpath
+    let l:command = strtrans(&grepprg)
+    let l:execommand = join(['silent', ' ', 'grep', ' ', l:searchoptions, ' ', l:quote, a:pattern, l:quote], '')
+    exe l:execommand
+    redraw!
 endfun
 
-command! -nargs=* Vim call FastGrep(<f-args>)
-if executable('rg')
-    let g:GREP_PROGRAM = "rg"
-    set grepprg=rg\ --vimgrep\ $*
-    set grepformat=%f:%l:%c:%m " Not handling column atm
-else 
-    let g:GREP_PROGRAM = "grep$*"
-endif
+command! -nargs=* Grep call FastGrep(<f-args>)
 
 " find files and populate the quickfix list
 fun! FindFiles(filename)
