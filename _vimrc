@@ -122,12 +122,6 @@ map <Up> :resize +5<CR>
 map <Right> :vertical resize +5<CR>
 map <Down> :resize -5<CR>
 
-"mapping to move around splits
-map <Leader>j <C-w>j
-map <Leader>k <C-w>k
-map <Leader>l <C-w>l
-map <Leader>h <C-w>h
-
 "remap gf to work without using the path option
 "<cfile> is the filename under the cursor
 map <Leader>gf :e <cfile><CR>
@@ -354,3 +348,13 @@ endfunction
 command! -nargs=0 W call Gstage()
 
 command! -nargs=0 S call system("xclip -sel clip -i", getreg("+"))
+
+" remap up and down to be useable with Leader
+nnoremap <Leader>b <C-b>
+nnoremap <Leader>u <C-u>
+
+" Use fzf to fuzzy find files
+" only if it was installed, then assume the plugin is also loaded
+if executable('fzf')
+    nnoremap <Leader>f :FZF<CR>
+endif
