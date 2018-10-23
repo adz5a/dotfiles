@@ -275,6 +275,7 @@ command! -nargs=* Grep call FastGrep(<f-args>)
 " find files and populate the quickfix list
 fun! FindFiles(filename)
     let error_file = tempname()
+    setlocal errorformat=%f:%l:%m
     silent! exe '!find . -not \( -path "'. join(split(&wildignore, ","), '" -o -path "') .'" \)| grep "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
     exe "cfile ". error_file
     copen
