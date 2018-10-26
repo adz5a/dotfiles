@@ -32,7 +32,6 @@ colorscheme hybrid_material
 set background=dark
 set number
 set relativenumber
-set scrolloff=0
 set showcmd " displays current command in operator pending mode
             " this could slow down vim
 set virtualedit="block" " allow to position the cursor anywhere
@@ -87,13 +86,10 @@ set pastetoggle=<F2>
 
 "open vimgrep in quickfix list
 "http://stackoverflow.com/questions/39009792/vimgrep-pattern-and-immediately-open-quickfix-in-split-mode
-
 augroup myvimrc
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l* cwindow
-    "set sql syntax color for dbout files. used by vim-dadbod
-    autocmd BufNewFile,BufRead *.dbout set filetype=sql
+    autocmd QuickFixCmdPost l* lwindow
 augroup END
 
 
