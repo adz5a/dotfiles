@@ -1,6 +1,9 @@
 "Load plugins
 set nocompatible
-execute pathogen#infect()
+if has('nivm') == 0
+    execute pathogen#infect()
+endif
+
 syntax on
 filetype plugin indent on
 
@@ -93,9 +96,11 @@ augroup myvimrc
 augroup END
 
 
+set scrolloff=10
+
 
 "see overwrite vim-sensible defaults
-set listchars=nbsp:☠,tab:▲\ ,eol:¬
+set listchars=nbsp:☠,tab:▲\ ,eol:¬,trail:-
 set list
 
 """"""""""""""""""""""""""""""""""""""
