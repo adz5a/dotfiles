@@ -351,6 +351,14 @@ command! -nargs=0 W call Gstage()
 
 command! -nargs=0 S call system("xclip -sel clip -i", getreg("+"))
 
+function DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
+endfunction
+
 " remap up and down to be useable with Leader
 nnoremap <Leader>b <C-b>
 nnoremap <Leader>u <C-u>
