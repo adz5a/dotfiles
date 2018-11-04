@@ -24,7 +24,7 @@
     # gui.
     fuck = "!git fsck --no-reflogs | awk '/dangling commit/ {print $3}'"
 [core]
-    editor = vim
+    editor = "nvr -s"
     pager = "diff-so-fancy | less --tabs=4 -RFX"
 [user]
 [init]

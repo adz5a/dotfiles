@@ -94,7 +94,7 @@ InGitPathColor=$BYellow
 #### CUSTOM FUNCTION DEFINITION
 ###############################
 
-source "$CONFIG_HOME/liquidprompt/liquidprompt"
+# source "$CONFIG_HOME/liquidprompt/liquidprompt"
 
 
 # Read a .md file and output in terminal

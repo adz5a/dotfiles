@@ -14,3 +14,5 @@ source ~/_vimrc
 tnoremap <Esc> <C-\><C-n>
 " Use "verbatim" mode to send the Esc sequence in terminal mode
 tnoremap <C-v><Esc> <Esc>
+
+let $VISUAL="nvr -cc split --remote-wait"

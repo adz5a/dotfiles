@@ -2,9 +2,11 @@ set -eu
 
 # Script to help installing this repo to create a new workstation easely. This
 # script must be called with an argument: install|uninstall.
-
-dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc'
-startup_files='.bashrc .profile .bash_aliases .xinitrc'
+# Dotfiles are syymlinked
+# Startup files are loaded by appending a `source path/to/custom_file` clause to
+# each file
+dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc .xinitrc'
+startup_files='.bashrc .profile .bash_aliases'
 
 install () {
 
@@ -31,13 +33,13 @@ install () {
 
     # for each of those dotfiles, append its content into the user's
     # correspondig file. A control sequence could be used to enable easy removal
+    echo '### custom ###' >> $HOME/$f
+    echo "export CONFIG_HOME=$PWD" >> $HOME/$f
     for f in $startup_files
     do
-        echo '### custom ###' >> $HOME/$f
-        echo "export CONFIG_HOME=$PWD" >> $HOME/$f
         echo "source $PWD/$f" >> $HOME/$f
-        echo '### end custom ###' >> $HOME/$f
     done
+    echo '### end custom ###' >> $HOME/$f
 
 }
 
