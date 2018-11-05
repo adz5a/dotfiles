@@ -44,7 +44,7 @@ set virtualedit="block" " allow to position the cursor anywhere
 " https://stackoverflow.com/questions/5547943/display-number-of-current-buffer
 set laststatus=2                             " always show statusbar
 set statusline=                              " reset statusline
-set statusline+=%-10.3n\                     " buffer number
+set statusline+=%-10.4n\                     " buffer number
 set statusline+=%{fugitive#statusline()}     " current git status
 set statusline+=%f\                          " filename
 set statusline+=%h%m%r%w                     " status flags
