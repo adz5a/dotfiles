@@ -5,7 +5,7 @@ clear Lock
 keycode 66 = Escape Escape Escape
 keycode 10 = exclam 1 1 exclam
 keycode 11 = quotedbl 2 2 at
-keycode 12 = sterling 3 3 numbersign
+keycode 12 = numbersign 3 3 sterling
 keycode 13 = dollar 4 4 dollar
 keycode 14 = percent 5 5 percent
 keycode 15 = asciicircum 6 6 asciicircum dead_circumflex dead_circumflex dead_circumflex
