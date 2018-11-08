@@ -1,3 +1,4 @@
+! KEysym list http://wiki.linuxquestions.org/wiki/List_of_Keysyms_Recognised_by_Xmodmap
 ! Run with `xmodmap .xmodmaprc`
 ! deactivate Caps lock on ubuntu
 clear Lock
@@ -13,3 +14,6 @@ keycode 16 = ampersand 7 7 ampersand
 keycode 17 = asterisk 8 8 asterisk
 keycode 18 = parenleft 9 9 parenleft dead_grave NoSymbol dead_grave
 keycode 19 = parenright 0 0 parenright
+
+! on US layout remap to get backslash and pipe instead of pound
+keycode 51 = backslash bar
