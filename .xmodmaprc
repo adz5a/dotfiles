@@ -6,6 +6,8 @@ clear Lock
 keycode 66 = Escape Escape Escape
 keycode 10 = exclam 1 1 exclam
 keycode 11 = quotedbl 2 2 at
+! This is for UK layout where the sterling symbol replaces the # char. This char
+! is then available on two keys in the UK layout
 keycode 12 = numbersign 3 3 sterling
 keycode 13 = dollar 4 4 dollar
 keycode 14 = percent 5 5 percent
@@ -14,6 +16,3 @@ keycode 16 = ampersand 7 7 ampersand
 keycode 17 = asterisk 8 8 asterisk
 keycode 18 = parenleft 9 9 parenleft dead_grave NoSymbol dead_grave
 keycode 19 = parenright 0 0 parenright
-
-! on US layout remap to get backslash and pipe instead of pound
-keycode 51 = backslash bar

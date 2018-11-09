@@ -103,7 +103,7 @@ md () {
     pandoc $1 | lynx -stdin
 }
 
-# tmux new session
+# TMUX helper functions
 tns () {
     SESSION=$1
     WINDOW=$2
@@ -129,6 +129,7 @@ tl-v () {
 tl-h () {
     tmux select-layout even-horizontal
 }
+###
 
 tsc () {
     $SESSION=$1
@@ -140,10 +141,19 @@ tsc () {
     tmux switch-client -t $SESSION
 }
 
-set_custom_layout () {
+# Custom keyboard layout configuration using xmodmap
+set_custom_layout_uk () {
     xmodmap $CONFIG_HOME/.xmodmaprc
 }
 
+set_custom_layout_us () {
+    xmodmap $CONFIG_HOME/.xmodmaprc
+    # on US layout remap to get backslash and pipe instead of pound
+    xmodmap -e "keycode 51 = backslash bar"
+}
+###
+
+# PS1
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n$ "
 
 parse_git_branch() {
