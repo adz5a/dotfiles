@@ -148,8 +148,13 @@ set_custom_layout_uk () {
 
 set_custom_layout_us () {
     xmodmap $CONFIG_HOME/.xmodmaprc
-    # on US layout remap to get backslash and pipe instead of pound
-    xmodmap -e "keycode 51 = backslash bar"
+    xmodmap -e 'keycode 66 = ISO_Level3_Shift' # rebind caps lock to Alt Key
+    xmodmap -e 'keycode 51 = backslash bar NoSymbol NoSymbol dead_grave' # use backslash to make grave accent on this layout
+    # Map ijkl to arrow key when using the Alt modifier
+    xmodmap -e 'keycode 31 = i I i I Up idotless'
+    xmodmap -e 'keycode 44 = j J j J Left dead_horn'
+    xmodmap -e 'keycode 45 = k K k K Down ampersand'
+    xmodmap -e 'keycode  46 = l L l L Right Lstroke'
 }
 ###
 
