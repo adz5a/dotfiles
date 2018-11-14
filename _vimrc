@@ -93,6 +93,7 @@ augroup myvimrc
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
+    autocmd VimEnter * if argc () == 0 | Explore! | endif
 augroup END
 
 
