@@ -97,7 +97,7 @@ augroup myvimrc
 augroup END
 
 
-set scrolloff=10
+set scrolloff=5
 
 
 "see overwrite vim-sensible defaults
@@ -369,3 +369,10 @@ nnoremap <Leader>u <C-u>
 if executable('fzf')
     nnoremap <Leader>F :FZF<CR>
 endif
+
+" copy current filepath (value of % register) to + register for clipboard use
+function! CopyFilepath ()
+    let @+ = @%
+    let @" = @%
+endfunction
+nnoremap <Leader>cp :call CopyFilepath()<CR>
