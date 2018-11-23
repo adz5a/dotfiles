@@ -228,7 +228,7 @@ else
     let g:GREP_PROGRAM = "grep"
 endif
 
-fun! FastGrep (pattern,...)
+fun! FastGrep (count, pattern,...)
     let l:quote = "'"
     let l:current_filetype = &filetype
     let l:mappings = [ 'php', 'js', 'vim', 'css', 'scss', 'twig', 'html', 'sql', '*', 'md' ]
@@ -246,10 +246,15 @@ fun! FastGrep (pattern,...)
     " 1 argument : assume you want to search on the current filetype
     " 2 argument : use it to determine the filetype
     if a:0 == 0
-        " By default if no path are specified search only for the current
-        " filetype
+        " If no path are specified, check if a range was specified and if it was
+        " % (whole file). If true then search only current file
+        if a:count == line('$')
+            let l:searchoptions = l:include . " " . l:quote . expand('%') . l:quote
+        else
+        " If no path are specified search only for the current filetype
         " Use the * option to search in every file
-        let l:searchoptions = l:include . " " . l:quote . "**/*."  . l:current_filetype . l:quote
+            let l:searchoptions = l:include . " " . l:quote . "**/*."  . l:current_filetype . l:quote
+        endif
     else
         " If a path is specified, search if it is in the 'mappings' list
         for ft in l:mappings
@@ -272,7 +277,7 @@ fun! FastGrep (pattern,...)
     redraw!
 endfun
 
-command! -nargs=* Grep call FastGrep(<f-args>)
+command! -range -nargs=* Grep call FastGrep(<count>, <f-args>)
 
 " find files and populate the quickfix list
 fun! FindFiles(filename)
