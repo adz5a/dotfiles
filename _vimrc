@@ -365,3 +365,14 @@ function! CopyFilepath ()
     let @" = @%
 endfunction
 nnoremap <Leader>cp :call CopyFilepath()<CR>
+
+" Set wrap options when arg is present, else removes them
+function! ToggleWrap(bang)
+    if empty(a:bang)
+        set wrap linebreak breakindent
+    else
+        set nowrap nolinebreak nobreakindent
+    endif
+endfunction
+
+command! -bang Wrap call ToggleWrap(<bang>0)
