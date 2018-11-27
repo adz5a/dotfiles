@@ -338,11 +338,7 @@ function! GitBranch (...)
 endfunction
 command! -nargs=* Gbranch call GitBranch(<f-args>)
 
-function! Gstage ()
-    exe "Gwrite"
-    exe "e"
-endfunction
-command! -nargs=0 W call Gstage()
+command! -nargs=0 W Grwite
 
 command! -nargs=0 S call system("xclip -sel clip -i", getreg("+"))
 
