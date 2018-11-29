@@ -238,7 +238,7 @@ fun! FastGrep (count, pattern,...)
     if g:GREP_PROGRAM ==? "grep"
         let l:include = "--include"
     elseif g:GREP_PROGRAM ==? "rg"
-        let l:include = "--iglob"
+        let l:include = "--glob"
     endif
 
     " Find searchoptions depending on number of arguments which the function was
