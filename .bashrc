@@ -158,6 +158,26 @@ set_custom_layout_us () {
 }
 ###
 
+layout () {
+    # Choose a layout between us or uk.
+    # A keyboard layout is defined by mappings which can be modified by the
+    # current locale.
+    # Because we don't remap all the keys using the full layout (`xmodmap -pke`)
+    # this command depends on the current ssytem configuration.
+    case $1 in
+        us)
+            set_custom_layout_us
+            ;;
+        uk)
+            set_custom_layout_uk
+            ;;
+        * )
+            echo "Commmand: layout [us|uk]"
+            exit 1
+            ;;
+    esac
+}
+
 # PS1
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
 
