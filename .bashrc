@@ -132,13 +132,23 @@ tl-h () {
 ###
 
 tsc () {
-    $SESSION=$1
+    SESSION=$1
 
     if [ -z $SESSION ]
     then
         echo 'Please specify a session name / id as per the tmux switch-session command'
     fi
     tmux switch-client -t $SESSION
+}
+
+trename () {
+    NAME = $1
+    if [ -z $NAME ]
+    then
+        echo 'Rename current window. Usage : trename new-name'
+        return
+    fi
+    tmux rename-window $NAME
 }
 
 # Custom keyboard layout configuration using xmodmap
