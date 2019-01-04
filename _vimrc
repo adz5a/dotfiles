@@ -145,6 +145,14 @@ function! ToggleScrollOffset()
   endif
 endfunction
 
+" use the same logic as in vimium to navigate tabs:
+" vim <nth>gt goes to the nth tab
+" vimium <nth>gt goes to the nth tab to the right
+" idem for gT
+nnoremap gt @='gt'<CR>
+nnoremap gT @='gT'<CR>
+nnoremap g$ :tablast<CR>
+nnoremap g0 :tabfirst<CR>
 
 "reformat current block & whole file
 nnoremap <Leader>= =i}
