@@ -358,10 +358,6 @@ function DeleteHiddenBuffers()
     endfor
 endfunction
 
-" remap up and down to be useable with Leader
-nnoremap <Leader>b <C-b>
-nnoremap <Leader>u <C-u>
-
 " Use fzf to fuzzy find files
 " only if it was installed, then assume the plugin is also loaded
 if executable('fzf')
@@ -384,4 +380,26 @@ function! ToggleWrap(bang)
     endif
 endfunction
 
-command! -bang Wrap call ToggleWrap(<bang>0)
+command! -bang Wrap call ToggleWrap(<bang>0)<CR>
+
+" Git blame mappings
+" The first is to run Gblame, the second to run it without looking for changes
+" that were only whitespace (-M) or moves (-m)
+nnoremap <Leader>b :Gblame<CR>
+nnoremap <Leader>B :Gblame -M -w<CR>
+vnoremap <Leader>b :'<,'>Gblame<CR>
+vnoremap <Leader>B :'<,'>Gblame -M -w<CR>
+
+
+" Toggle the colorcolumn option. A global cc variable can be set to control the
+" value of the colorcolumn.
+let g:cc=80
+function! ToggleColorcolumn ()
+    let cc = &colorcolumn
+    if cc == 0
+        let &l:colorcolumn=g:cc
+    else
+        setlocal colorcolumn=
+    endif
+endfunction
+nnoremap <Leader>cc :call ToggleColorcolumn()<CR>
