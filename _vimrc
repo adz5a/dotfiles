@@ -87,13 +87,19 @@ set mouse=c
 
 set pastetoggle=<F2>
 
-"open vimgrep in quickfix list
-"http://stackoverflow.com/questions/39009792/vimgrep-pattern-and-immediately-open-quickfix-in-split-mode
+" Use a global variable to track the last visited tab
+if !exists("g:last_tab")
+    let g:last_tab = 1
+endif
 augroup myvimrc
     autocmd!
+    "open vimgrep in quickfix list
+    "http://stackoverflow.com/questions/39009792/vimgrep-pattern-and-immediately-open-quickfix-in-split-mode
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
     autocmd VimEnter * if argc () == 0 | Explore! | endif
+    " update the var each time a tab is left
+    autocmd TabLeave * let g:tab_last=tabpagenr()
 augroup END
 
 
@@ -149,10 +155,17 @@ endfunction
 " vim <nth>gt goes to the nth tab
 " vimium <nth>gt goes to the nth tab to the right
 " idem for gT
+" TODO: this works using the fact that the @ command will evaluate 'gt' nth
+" time, however this makes vim navigate to all intermediary tabs, which makes
+" the global g:last_tab incorrect. A function calculate the number of jumps to
+" do and programmatically navigate to the targeted tab.
 nnoremap gt @='gt'<CR>
 nnoremap gT @='gT'<CR>
 nnoremap g$ :tablast<CR>
 nnoremap g0 :tabfirst<CR>
+" go to last visited tab
+" this will not work unless the TODO above is done.
+nnoremap g^ :exe "tabnext " . g:last_tab<CR>
 
 "reformat current block & whole file
 nnoremap <Leader>= =i}
