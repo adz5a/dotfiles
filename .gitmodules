@@ -79,3 +79,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule "bundle/vim-dispatch-neovim"]
+	path = bundle/vim-dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim.git
