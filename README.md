@@ -15,6 +15,14 @@ cd dotfiles
 git submodule init
 git submodule update
 
+
+# Optional: install additional libraries. Some may be needed for some scripts to
+# work.
+- xmodmap
+- xclip: allows clipboard manipulation
+- unclutter: makes the pointer disappear
+- nvim
+- universal-ctags
 ```
 
 Add the following in your `.bashrc`.
