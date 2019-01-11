@@ -416,3 +416,8 @@ function! ToggleColorcolumn ()
     endif
 endfunction
 nnoremap <Leader>cc :call ToggleColorcolumn()<CR>
+
+" In visual mode the :DB command executes whatever is selected but it makes use
+" of the command mode. This mapping allows to use the `db` command behind the
+" Leader.
+vnoremap <Leader>db :DB<CR>
