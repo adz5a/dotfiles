@@ -21,32 +21,9 @@ git submodule update
 - xmodmap
 - xclip: allows clipboard manipulation
 - unclutter: makes the pointer disappear
-- nvim
+- nvim: use the appimage
+- neovim-remote: this is a python3 module, needs python3-pip
 - universal-ctags
-```
-
-Add the following in your `.bashrc`.
-
-```bash
-
-# in interactive mode load custom settings
-[[ $- = *i* ]] && source ~/dotfiles/liquidprompt/liquidprompt
-[[ $- = *i* ]] && source ~/dotfiles/.bashrc
-[[ $- = *i* ]] && source ~/dotfiles/.bash_aliases
-
-```
-
-
-## Remove caps lock and remap to escape
-
-```bash
-xmodmap -e "clear Lock" -e "keycode 66 = Escape Escape Escape"
-```
-
-## Ctags
-
-You need to have `exuberant-ctags` (or any alternatives that provides the `ctags`
-command).
 
 ## Git template
 

@@ -11,7 +11,9 @@ startup_files='.bashrc .profile .bash_aliases'
 install () {
 
     if [ -d $HOME/bin ]; then
+        echo "Create symlinks in $HOME/bin"
         ln -s $PWD/diff-so-fancy/diff-so-fancy $HOME/bin/diff-so-fancy;
+        ln -s $PWD/prettyping/prettyping $HOME/bin/prettyping;
     else
         echo "No local bin present"
         exit 1
