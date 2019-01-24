@@ -347,11 +347,6 @@ function! SelectTags (split)
     endif
 endfunction
 
-" Jump to the symbole under the cursor declaration
-nnoremap <Leader>a :call SelectTags(0) <CR>
-" Jump to the symbole under the cursor declaration in a new split
-nnoremap <Leader>A :call SelectTags(1) <CR>
-
 function! GitBranch (...)
 
     exe "Git! branch " . join(a:000, " ")
