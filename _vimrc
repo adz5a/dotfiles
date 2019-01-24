@@ -372,12 +372,6 @@ function DeleteHiddenBuffers()
     endfor
 endfunction
 
-" Use fzf to fuzzy find files
-" only if it was installed, then assume the plugin is also loaded
-if executable('fzf')
-    nnoremap <Leader>F :FZF<CR>
-endif
-
 " copy current filepath (value of % register) to + register for clipboard use
 function! CopyFilepath ()
     let @+ = @%
