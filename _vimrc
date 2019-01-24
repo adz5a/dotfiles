@@ -421,4 +421,7 @@ nnoremap <Leader>cc :call ToggleColorcolumn()<CR>
 " In visual mode the :DB command executes whatever is selected but it makes use
 " of the command mode. This mapping allows to use the `db` command behind the
 " Leader.
+" In normal mode just replay :DB with the last visual selection. Subject to
+" improvements.
 vnoremap <Leader>db :DB<CR>
+nnoremap <Leader>db gv:DB<CR>
