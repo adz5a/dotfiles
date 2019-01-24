@@ -15,12 +15,18 @@ let g:javascript_plugin_jsdoc = 1 "vim-javascript enable JSDOC highlightning
 let g:jsx_ext_required = 0
 
 "PATH CONFIGURATION
-set path=$PWD/**
-set wildignore+=**/node_modules/** "plz don't :find inside the node_modules
+" set path to file directory and
+" working directory
+set path=.,,
+" These are generic folders where you usually don't want to  search
+set wildignore+=**/node_modules/**
 set wildignore+=**/out/**
 set wildignore+=**/dist/**
 set wildignore+=**/build/**
 set wildignore+=**/.git/objects/**
+
+" key to use when you want to use Tab expansion programmatically
+set wildcharm=<C-z>
 
 
 set tags+=./.git/tags
