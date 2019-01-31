@@ -8,4 +8,4 @@ alias tk="tmux kill-session"
 alias tlv="tmux select-layout main-vertical"
 alias tlh="tmux select-layout main-vertical"
 
-complete -W "source-file new-session rename-session split-window detach-client kill-session select-layout" tmux
+complete -W "rename-window next-window source-file new-session new-window rename-session split-window detach-client kill-session select-layout" tmux
