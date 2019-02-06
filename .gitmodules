@@ -82,3 +82,6 @@
 [submodule "prettyping"]
 	path = prettyping
 	url = https://github.com/denilsonsa/prettyping
+[submodule "bundle/vim-parinfer"]
+	path = bundle/vim-parinfer
+	url = https://github.com/bhurlow/vim-parinfer
