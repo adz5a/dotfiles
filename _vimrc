@@ -419,3 +419,5 @@ nnoremap <Leader>cc :call ToggleColorcolumn()<CR>
 " improvements.
 vnoremap <Leader>db :DB<CR>
 nnoremap <Leader>db gv:DB<CR>
+
+nnoremap <C-w>t :term<CR>
