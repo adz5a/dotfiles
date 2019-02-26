@@ -24,6 +24,8 @@ git submodule update
 - nvim: use the appimage
 - neovim-remote: this is a python3 module, needs python3-pip
 - universal-ctags
+- bat https://github.com/sharkdp/bat/releases
+- rg https://github.com/BurntSushi/ripgrep/releases
 
 ## Git template
 
