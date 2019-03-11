@@ -5,7 +5,7 @@ set -eu
 # Dotfiles are syymlinked
 # Startup files are loaded by appending a `source path/to/custom_file` clause to
 # each file
-dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc .xinitrc'
+dotfiles='.gitconfig git_template .tmux.conf .ctags _vimrc'
 startup_files='.bashrc .profile .bash_aliases'
 
 install () {
