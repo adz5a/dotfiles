@@ -421,3 +421,20 @@ vnoremap <Leader>db :DB<CR>
 nnoremap <Leader>db gv:DB<CR>
 
 nnoremap <C-w>t :term<CR>
+
+nnoremap <Leader>wh :wincmd h<CR>
+nnoremap <Leader>wj :wincmd j<CR>
+nnoremap <Leader>wk :wincmd k<CR>
+nnoremap <Leader>wl :wincmd l<CR>
+
+nnoremap <Leader>wx :wincmd x<CR>
+nnoremap <Leader>wq :wincmd q<CR>
+nnoremap <Leader>wn :wincmd n<CR>
+nnoremap <Leader>ws :wincmd s<CR>
+
+nnoremap <Leader>wH :wincmd H<CR>
+nnoremap <Leader>wJ :wincmd J<CR>
+
+nnoremap <Leader>wT :wincmd T<CR>
+
+nnoremap <Leader>w= :wincmd =<CR>
