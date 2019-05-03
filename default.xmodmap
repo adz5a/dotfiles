@@ -1,3 +1,4 @@
+keycode   9 = Escape NoSymbol quoteleft NoSymbol Escape
 ! Rebind Caps Lock to Mode_switch 
 ! Pressing this key enables the third column keysym, it is mainly used to rebind
 ! the hjkl keys to the arrow keys, and the semicolon, etc... to accent for FR.
@@ -11,6 +12,7 @@ keycode  16 = ampersand 7 7 ampersand
 keycode  17 = asterisk 8 8 asterisk
 keycode  18 = parenleft 9 9 parenleft dead_grave NoSymbol dead_grave
 keycode  19 = parenright 0 0 parenright
+keycode  36 = Return NoSymbol dead_circumflex NoSymbol Return
 keycode  43 = h H Left H h H
 keycode  44 = j J Down J j J
 keycode  45 = k K Up K k K
@@ -18,5 +20,5 @@ keycode  46 = l L Right L l L
 keycode  47 = semicolon colon dead_acute M dead_acute colon
 ! rather have the at sym above the comma (instead of the dblquote on US layouts)
 keycode  48 = apostrophe at dead_grave percent dead_grave quotedbl
-keycode  61 = slash question slash question dead_circumflex dead_abovedot slash question
+keycode  61 = slash question dead_circumflex question dead_circumflex dead_abovedot slash question
 keycode  66 = Mode_switch NoSymbol Caps_Lock NoSymbol Caps_Lock
