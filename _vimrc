@@ -28,6 +28,7 @@ set wildignore+=**/.git/objects/**
 " key to use when you want to use Tab expansion programmatically
 set wildcharm=<C-z>
 
+set hidden
 
 set tags+=./.git/tags
 
@@ -237,7 +238,6 @@ noremap <silent> <Leader>ù %
 noremap <Leader>d :Gvdiff<CR>
 noremap <Leader>D :Gvdiff HEAD<CR>
 noremap <Leader>s :Gstatus<CR>
-noremap <Leader>S :tabnew<CR>:Gstatus<CR>
 
 "Toggle listchar
 noremap <Leader>c :set list<CR>
@@ -438,3 +438,4 @@ nnoremap <Leader>wJ :wincmd J<CR>
 nnoremap <Leader>wT :wincmd T<CR>
 
 nnoremap <Leader>w= :wincmd =<CR>
+
