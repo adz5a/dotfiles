@@ -162,7 +162,7 @@ layout () {
 }
 
 # PS1
-export PS1="\$(parse_git_branch)\[\033[00m\]$ "
+export PS1="$BWhite\$\e[m$BYellow\$(parse_git_branch)\e[m "
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
