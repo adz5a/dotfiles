@@ -23,14 +23,14 @@ set wildignore+=**/node_modules/**
 set wildignore+=**/out/**
 set wildignore+=**/dist/**
 set wildignore+=**/build/**
+set wildignore+=**/target/**
+set wildignore+=**/classes/**
 set wildignore+=**/.git/objects/**
 
 " key to use when you want to use Tab expansion programmatically
 set wildcharm=<C-z>
 
 set hidden
-
-set tags+=./.git/tags
 
 "GENERAL EDITOR CONFIG
 set t_Co=256
@@ -249,7 +249,7 @@ noremap <Leader>C :set nolist<CR>
 
 if executable('rg')
     let g:GREP_PROGRAM = "rg"
-    set grepprg=rg\ --vimgrep
+    set grepprg=rg\ --vimgrep\ --glob\ '!tags'\ --glob\ '!**/tags'
     set grepformat=%f:%l:%c:%m " Not handling column atm
 else 
     let g:GREP_PROGRAM = "grep"
@@ -438,4 +438,6 @@ nnoremap <Leader>wJ :wincmd J<CR>
 nnoremap <Leader>wT :wincmd T<CR>
 
 nnoremap <Leader>w= :wincmd =<CR>
+
+nnoremap <Leader>F :FZF<CR>
 

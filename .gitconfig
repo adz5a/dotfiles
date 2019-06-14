@@ -30,6 +30,8 @@
     since = "!git log $1..HEAD"
     printconfig = "!bat $HOME/.gitconfig"
     pff = "pull --ff-only"
+ 
+    mff = "merge --ff-only"
 [core]
     editor = "nvr -s -cc split --remote-wait-silent"
     pager = "diff-so-fancy | less --tabs=4 -RFX"
