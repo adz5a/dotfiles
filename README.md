@@ -23,6 +23,7 @@ git submodule update
 - unclutter: makes the pointer disappear
 - nvim: use the appimage
 - neovim-remote: this is a python3 module, needs python3-pip
+- pynvim and neovim python module
 - universal-ctags 5.8
 - bat https://github.com/sharkdp/bat/releases
 - rg https://github.com/BurntSushi/ripgrep/releases
