@@ -24,7 +24,6 @@ set wildignore+=**/out/**
 set wildignore+=**/dist/**
 set wildignore+=**/build/**
 set wildignore+=**/target/**
-set wildignore+=**/classes/**
 set wildignore+=**/.git/objects/**
 
 " key to use when you want to use Tab expansion programmatically
