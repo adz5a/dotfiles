@@ -75,7 +75,7 @@ set timeoutlen=500 ttimeoutlen=0
 set noswapfile
 
 "general text formatting
-set textwidth=80
+set textwidth=120
 set nowrap
 
 
