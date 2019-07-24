@@ -22,3 +22,13 @@ install-ctags-lib:
 
 xmodmap:
 	cat default.xmodmap | xmodmap -
+
+# vim install
+ftplugin-symlink:
+	ln -s $(PWD)/ftplugin $(HOME)/.vim/ftplugin
+
+after-symlink:
+	ln -s $(PWD)/after $(HOME)/.vim/after
+	ln -s $(PWD)/after $(HOME)/.config/nvim/after
+
+vim-symlink: after-symlink, ftplugin-symlink
