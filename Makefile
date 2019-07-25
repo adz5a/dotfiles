@@ -25,7 +25,7 @@ xmodmap:
 
 # vim install
 ftplugin-symlink:
-	ln -s $(PWD)/ftplugin $(HOME)/.vim/ftplugin
+	ln -s $(iPWD)/ftplugin $(HOME)/.vim/ftplugin
 
 after-symlink:
 	ln -s $(PWD)/after $(HOME)/.vim/after
