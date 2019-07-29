@@ -309,7 +309,18 @@ command! -range -nargs=* Grep call FastGrep(<count>, <f-args>)
 fun! FindFiles(filename)
     let error_file = tempname()
     setlocal errorformat=%f:%l:%m
-    silent! exe '!find . -not \( -path "'. join(split(&wildignore, ","), '" -o -path "') .'" \)| grep "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
+    silent! exe '!find . -not \( -path "'. join(split(&wildignore, ","), '" -o -path "') .'" \)| '. g:GREP_PROGRAM .' "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
+    exe "cfile ". error_file
+    copen
+    redraw!
+endfun
+command! -nargs=1 FindAll call FindFiles(<q-args>)
+"
+" find tracked files and populate the quickfix list
+fun! FindFiles(filename)
+    let error_file = tempname()
+    setlocal errorformat=%f:%l:%m
+    silent! exe '!git ls-files -cm | '. g:GREP_PROGRAM .' "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
     exe "cfile ". error_file
     copen
     redraw!
