@@ -33,3 +33,21 @@ git submodule update
 
 This repo contains (and symlinks to ~) a `git_template` dir. It can be used as
 the value for the `--template` argument in `git init` and `git clone`.
+
+## Pro tips
+
+### Postgres URL connection
+
+```
+"postgresql://localhost:5432/default_diffusion_db?password=password&user=user"
+```
+
+### VIM CTAGS integration
+
+Ctags can be used using the gutentags plugin. It will automatically build a `tags` file in your repo at its root.
+One useful configuration option is the `g:gutentags_ctags_exclude` which allows you to ignore globs in your application.
+By default all paths on the `wildignore` are ignored.
+
+```
+let g:gutentags_ctags_exclude = ["resources", "doc", "package-lock.json", "yarn.lock", "**/*.js", "**/*.css", "**/.shadow-cljs/**", "**/*.md", "**/*.json"]
+```

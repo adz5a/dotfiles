@@ -18,4 +18,4 @@ tnoremap <C-v><Esc> <Esc>
 let $VISUAL="nvr -cc split --remote-wait"
 
 " Highlights the cursor in red when in term mode (white when insert-term mode)
-highlight! TermCursorNC guibg=red guifg=withe ctermbg=1 ctermfg=15
+highlight TermCursorNC guibg=red guifg=withe ctermbg=1 ctermfg=15
