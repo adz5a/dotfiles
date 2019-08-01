@@ -25,6 +25,8 @@ set wildignore+=**/dist/**
 set wildignore+=**/build/**
 set wildignore+=**/target/**
 set wildignore+=**/.git/objects/**
+set wildignore+=**/staticfiles/**
+set wildignore+=**/venv/**
 
 " key to use when you want to use Tab expansion programmatically
 set wildcharm=<C-z>

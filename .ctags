@@ -1,3 +1,4 @@
+# Must be in $HOME/.ctags.d/clojure.ctags
 # Basic options
 # --recurse=yes
 # --tag-relative=yes
