@@ -13,6 +13,9 @@ xmodmap:
 ftplugin-symlink:
 	ln -s $(iPWD)/ftplugin $(HOME)/.vim/ftplugin
 
+deps-edn-symlink:
+	ln -s $(iPWD)/deps.edn $(HOME)/.clojure/deps.edn
+
 after-symlink:
 	ln -s $(PWD)/after $(HOME)/.vim/after
 	ln -s $(PWD)/after $(HOME)/.config/nvim/after
