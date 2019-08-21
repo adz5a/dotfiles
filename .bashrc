@@ -167,3 +167,15 @@ export PS1="$BWhite\$\e[m$BYellow\$(parse_git_branch)\e[m "
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
+
+L () {
+
+    tree -I '__pycache__' -I 'node_modules' $* | less
+
+}
+
+disk_space () {
+
+    du -lchs ./*
+
+}
