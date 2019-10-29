@@ -14,3 +14,8 @@ if exists("loaded_matchit")
   let b:match_words = '(:),\[:\],{:},<:>,' .
         \ '<\@<=\([^/][^ \t>]*\)[^>]*\%(/\@<!>\|$\):<\@<=/\1>'
 endif
+
+" creates an arrow expression and places the cursor on the opening parenthesis
+nnoremap <Leader>ar i() => {}<Esc>7h
+nnoremap <Leader>fn ifunction () {}<Esc>13h
+nnoremap <Leader>afn iasync function () {}<Esc>19h
