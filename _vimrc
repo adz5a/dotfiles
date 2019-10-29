@@ -384,6 +384,9 @@ function DeleteHiddenBuffers()
     endfor
 endfunction
 
+command! -bang CleanBuffers call DeleteHiddenBuffers()<CR>
+
+
 " copy current filepath (value of % register) to + register for clipboard use
 function! CopyFilepath ()
     let @+ = @%

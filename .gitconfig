@@ -16,6 +16,8 @@
     last = log --decorate -1 --abbrev-commit --name-status
     rsh = reset --soft HEAD~
     rbi = rebase -i
+    rbc = rebase --continue
+    rba = rebase --abort
     ls = log --graph --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status
     l = log --decorate --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     rdiff = "! git --git-dir=\"$(git rev-parse --show-toplevel)\"/.git diff"
