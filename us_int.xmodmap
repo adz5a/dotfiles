@@ -1,0 +1,5 @@
+keycode  43 = h H Left H h H
+keycode  44 = j J Down J j J
+keycode  45 = k K Up K k K
+keycode  46 = l L Right L l L
+keycode  66 = Mode_switch NoSymbol Mode_switch
