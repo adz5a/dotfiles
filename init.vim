@@ -4,9 +4,7 @@ set nocompatible
 syntax on
 filetype plugin indent on
 
-set runtimepath^=~/.vim
-let &packpath=&runtimepath
-source ~/_vimrc
+source ~/dotfiles/_vimrc
 
 " Mappings for neovim
 

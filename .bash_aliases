@@ -1,4 +1,6 @@
 # defines aliases and completion
+alias ll="ls -lhG"
+alias la="ls -lahG"
 alias g="git"
 alias cl="clear"
 alias tl="tmux ls"

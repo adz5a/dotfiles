@@ -21,3 +21,8 @@ after-symlink:
 	ln -s $(PWD)/after $(HOME)/.config/nvim/after
 
 vim-symlink: after-symlink ftplugin-symlink
+
+diff-so-fancy:
+	git clone --depth 1 https://github.com/so-fancy/diff-so-fancy.git src/diff-so-fancy
+	chmod +x src/diff-so-fancy/diff-so-fancy
+	ln -s $(PWD)/src/diff-so-fancy/diff-so-fancy $(HOME)/bin/diff-so-fancy

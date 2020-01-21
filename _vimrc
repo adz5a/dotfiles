@@ -1,8 +1,5 @@
 "Load plugins
 set nocompatible
-if has('nivm') == 0
-    execute pathogen#infect()
-endif
 
 syntax on
 filetype plugin indent on
