@@ -11,6 +11,7 @@ let g:move_key_modifier = "C"
 let g:javascript_plugin_jsdoc = 1 "vim-javascript enable JSDOC highlightning
 let g:jsx_ext_required = 0
 
+
 "PATH CONFIGURATION
 " set path to file directory and
 " working directory
@@ -35,7 +36,6 @@ set t_Co=256
 " set cursorline
 set hlsearch
 set tabstop=4 shiftwidth=4 expandtab
-set encoding=utf-8
 colorscheme hybrid_material
 set background=dark
 set number
@@ -184,7 +184,7 @@ nnoremap <Leader>f zfi}
 
 "remove trailing spaces
 "for the current line
-noremap <silent> <Leader>m :%s/\s*$/<CR>:%s/\%u00a0/ /g<CR>:noh<CR><C-o>
+nnoremap <Leader>l :nohl<CR>
 
 "http://vim.wikia.com/wiki/Jumping_to_the_start_and_end_of_a_code_block
 "go to start of current block
@@ -453,3 +453,4 @@ nnoremap <Leader>w= :wincmd =<CR>
 
 nnoremap <Leader>F :FZF<CR>
 
+let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'yarn.lock', '**/*.json']

@@ -6,7 +6,7 @@
 #  Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
 #  I don't remember where I found this.  o_O
 
-source ./.bash_aliases
+source $HOME/dotfiles/.bash_aliases
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
@@ -112,8 +112,7 @@ tns () {
 
     if [ -z $SESSION ]
     then
-        echo 'Usage: tns session-name [window-name]'
-        return
+        SESSION='workspace'
     fi
 
     if [ -z $WINDOW ]
@@ -181,3 +180,6 @@ disk_space () {
     du -lchs ./*
 
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+source /Users/antoinezimmermann/projects/alacritty/extra/completions/alacritty.bash
