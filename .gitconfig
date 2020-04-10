@@ -35,7 +35,7 @@
  
     mff = "merge --ff-only"
 [core]
-    editor = "nvr -s -cc split --remote-wait-silent"
+    editor = "nvim"
     pager = "diff-so-fancy | less --tabs=4 -RFX"
 [user]
 [init]
