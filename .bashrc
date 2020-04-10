@@ -181,5 +181,13 @@ disk_space () {
 
 }
 
+edit () {
+    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+        nvr $*
+    else
+        nvim $*
+    fi
+}
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /Users/antoinezimmermann/projects/alacritty/extra/completions/alacritty.bash
