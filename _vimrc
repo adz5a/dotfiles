@@ -35,7 +35,7 @@ set hidden
 set t_Co=256
 " set cursorline
 set hlsearch
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 colorscheme hybrid_material
 set background=dark
 set number
@@ -102,7 +102,6 @@ augroup myvimrc
     "http://stackoverflow.com/questions/39009792/vimgrep-pattern-and-immediately-open-quickfix-in-split-mode
     autocmd QuickFixCmdPost [^l]* cwindow
     autocmd QuickFixCmdPost l* lwindow
-    autocmd VimEnter * if argc () == 0 | Explore! | endif
     " update the var each time a tab is left
     autocmd TabLeave * let g:tab_last=tabpagenr()
 augroup END
@@ -453,4 +452,4 @@ nnoremap <Leader>w= :wincmd =<CR>
 
 nnoremap <Leader>F :FZF<CR>
 
-let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'yarn.lock', '**/*.json']
+let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime']

@@ -181,9 +181,9 @@ disk_space () {
 
 }
 
-edit () {
+ed () {
     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-        nvr $*
+        [[ -n "$*" ]] && nvr $* || nvr .
     else
         nvim $*
     fi
