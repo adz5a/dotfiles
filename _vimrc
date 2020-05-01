@@ -241,6 +241,11 @@ noremap <Leader>s :Gstatus<CR>
 noremap <Leader>c :set list<CR>
 noremap <Leader>C :set nolist<CR>
 
+" list buffers
+nnoremap <Leader>ls :ls<CR>
+" list buffers
+nnoremap <Leader>cb :CleanBuffers<CR>
+
 "Commands
 :command! Standup Glog -1 --
 " END MAPPINGS
