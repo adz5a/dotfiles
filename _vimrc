@@ -15,7 +15,8 @@ let g:jsx_ext_required = 0
 "PATH CONFIGURATION
 " set path to file directory and
 " working directory
-set path=.,,
+" set path=.,,
+set rtp+=/usr/local/opt/fzf
 " These are generic folders where you usually don't want to  search
 set wildignore+=**/node_modules/**
 set wildignore+=**/out/**
