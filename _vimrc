@@ -37,7 +37,7 @@ set t_Co=256
 " set cursorline
 set hlsearch
 set tabstop=2 shiftwidth=2 expandtab
-colorscheme hybrid_material
+colorscheme pablo
 set background=dark
 set number
 set relativenumber
@@ -146,16 +146,6 @@ nnoremap <Leader>O i<CR><ESC>O<ESC>o<ESC>O
 "used when creating objects / arrays
 nnoremap <Leader>o i<CR><ESC>O
 
-nnoremap <Leader>r :call ToggleScrollOffset()<CR>
-
-function! ToggleScrollOffset()
-  if &scrolloff > 10
-    set scrolloff=1
-  else
-    set scrolloff=500
-  endif
-endfunction
-
 " use the same logic as in vimium to navigate tabs:
 " vim <nth>gt goes to the nth tab
 " vimium <nth>gt goes to the nth tab to the right
@@ -175,9 +165,6 @@ nnoremap g^ :exe "tabnext " . g:last_tab<CR>
 "reformat current block & whole file
 nnoremap <Leader>= =i}
 nnoremap <Leader>== gg=G
-
-"copy
-nnoremap <Leader>w yiw
 
 "fold block (between curly braces)
 nnoremap <Leader>f zfi}
@@ -241,8 +228,6 @@ noremap <Leader>s :Gstatus<CR>
 noremap <Leader>c :set list<CR>
 noremap <Leader>C :set nolist<CR>
 
-" list buffers
-nnoremap <Leader>ls :ls<CR>
 " list buffers
 nnoremap <Leader>cb :CleanBuffers<CR>
 
@@ -456,6 +441,13 @@ nnoremap <Leader>wT :wincmd T<CR>
 
 nnoremap <Leader>w= :wincmd =<CR>
 
-nnoremap <Leader>F :FZF<CR>
+nnoremap <Leader>F :Files<CR>
+" list buffers
+nnoremap <Leader>B :Buffers<CR>
+" git-ls
+nnoremap <Leader>ls :GFiles<CR> 
+nnoremap <Leader>g :Rg<CR> 
+nnoremap <Leader>H :Helptags<CR> 
+nnoremap <Leader>W :Windows<CR> 
 
 let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime']
