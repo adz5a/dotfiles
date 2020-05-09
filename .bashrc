@@ -193,3 +193,5 @@ ed () {
 source /Users/antoinezimmermann/projects/alacritty/extra/completions/alacritty.bash
 
 export FZF_DEFAULT_COMMAND="fd --type f"
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
