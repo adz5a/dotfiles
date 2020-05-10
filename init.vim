@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 
 source ~/dotfiles/_vimrc
+source ~/dotfiles/colors.vim
 
 " Mappings for neovim
 

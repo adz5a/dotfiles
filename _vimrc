@@ -38,7 +38,6 @@ set t_Co=256
 set hlsearch
 set tabstop=2 shiftwidth=2 expandtab
 " color specific configuration
-source ./colors.vim
 set background=dark
 set number
 set relativenumber
