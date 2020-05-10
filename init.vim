@@ -17,10 +17,6 @@ let $VISUAL="nvr -cc split --remote-wait"
 let $LANG=""
 let $LC_CTYPE="UTF-8"
 let $GIT_EDITOR="nvr -cc split --remote-wait"
-"d Highlights the cursor in red when in term mode (white when insert-term mode)
-highlight TermCursorNC guibg=red guifg=withe ctermbg=1 ctermfg=15
-highlight! LineNr term=bold cterm=NONE ctermfg=DarkBlue ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-highlight! Statusline ctermfg=red ctermbg=12 guifg=#ffff00 guibg=#0000ff
 
 packadd minpac
 call minpac#init()
@@ -40,6 +36,7 @@ call minpac#add("mxw/vim-jsx")
 call minpac#add("junegunn/fzf.vim")
 call minpac#add("Olical/aniseed", {"rev": "v3.3.0"})
 call minpac#add("bakpakin/fennel.vim")
+call minpac#add("franbach/miramare")
 
 fun! OnStartVim()
   if argc () == 0

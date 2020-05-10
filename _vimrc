@@ -37,7 +37,8 @@ set t_Co=256
 " set cursorline
 set hlsearch
 set tabstop=2 shiftwidth=2 expandtab
-colorscheme pablo
+" color specific configuration
+source ./colors.vim
 set background=dark
 set number
 set relativenumber
@@ -176,7 +177,6 @@ nnoremap <Leader>l :nohl<CR>
 "http://vim.wikia.com/wiki/Jumping_to_the_start_and_end_of_a_code_block
 "go to start of current block
 noremap <Leader>b [{
-noremap <Leader>B [{%
 
 "go to start of parenthesis
 noremap <silent> <Leader>p [(<ESC>%
@@ -395,9 +395,7 @@ command! -bang Wrap call ToggleWrap(<bang>0)<CR>
 " Git blame mappings
 " The first is to run Gblame, the second to run it without looking for changes
 " that were only whitespace (-M) or moves (-m)
-nnoremap <Leader>b :Gblame<CR>
 nnoremap <Leader>B :Gblame -M -w<CR>
-vnoremap <Leader>b :'<,'>Gblame<CR>
 vnoremap <Leader>B :'<,'>Gblame -M -w<CR>
 
 
@@ -443,7 +441,7 @@ nnoremap <Leader>w= :wincmd =<CR>
 
 nnoremap <Leader>F :Files<CR>
 " list buffers
-nnoremap <Leader>B :Buffers<CR>
+nnoremap <Leader>b :Buffers<CR>
 " git-ls
 nnoremap <Leader>ls :GFiles<CR> 
 nnoremap <Leader>g :Rg<CR> 
