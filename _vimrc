@@ -122,6 +122,14 @@ set list
 " MAPPINGS
 
 let mapleader=" "
+let maplocalleader=","
+
+" paredit configuration
+let g:paredit_electric_return=0
+let g:paredit_electric_return=0
+let g:paredit_shortmaps=0
+let g:paredit_leader="\\"
+
 "disables direction keys
 "in insertion modes
 imap <Up> <NOP>
