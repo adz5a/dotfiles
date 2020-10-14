@@ -28,7 +28,7 @@ call minpac#add("tpope/vim-dadbod")
 call minpac#add("tpope/vim-vinegar")
 " call minpac#add("tpope/vim-fireplace", {"rev": "v2.1"})
 call minpac#add("tpope/vim-surround")
-call minpac#add("bhurlow/vim-parinfer")
+call minpac#add("vim-scripts/paredit.vim")
 call minpac#add("ludovicchabant/vim-gutentags")
 " call minpac#add("adz5a/vim-hybrid-material")
 call minpac#add("tpope/vim-commentary")
@@ -36,9 +36,15 @@ call minpac#add("tpope/vim-commentary")
 call minpac#add("mxw/vim-jsx")
 call minpac#add("junegunn/fzf.vim")
 call minpac#add("Olical/aniseed", {"rev": "v3.3.0"})
-call minpac#add("Olical/conjure", {"rev": "v3.1.2"})
+call minpac#add("Olical/conjure", {"rev": "v4.5.0"})
 call minpac#add("bakpakin/fennel.vim")
 call minpac#add("franbach/miramare")
+call minpac#add("neo4j-contrib/cypher-vim-syntax")
+call minpac#add("hashivim/vim-terraform")
+call minpac#add("tpope/vim-dispatch")
+
+let g:dispatch_no_tmux_make=1
+let g:dispatch_no_tmux_start=1
 
 fun! OnStartVim()
   if argc () == 0

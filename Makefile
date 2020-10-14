@@ -1,5 +1,8 @@
 SESSION=dotfiles
 
+rg:
+	brew install ripgrep
+
 submodule:
 	git submodule update --init
 
@@ -26,3 +29,9 @@ diff-so-fancy:
 	git clone --depth 1 https://github.com/so-fancy/diff-so-fancy.git src/diff-so-fancy
 	chmod +x src/diff-so-fancy/diff-so-fancy
 	ln -s $(PWD)/src/diff-so-fancy/diff-so-fancy $(HOME)/bin/diff-so-fancy
+
+ctags:
+	brew install ctags
+
+symlink-ctags:
+	ln -s $(PWD)/ctags $(HOME)/.ctags.d

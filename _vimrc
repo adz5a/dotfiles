@@ -181,10 +181,6 @@ nnoremap <Leader>f zfi}
 "for the current line
 nnoremap <Leader>l :nohl<CR>
 
-"http://vim.wikia.com/wiki/Jumping_to_the_start_and_end_of_a_code_block
-"go to start of current block
-noremap <Leader>b [{
-
 "go to start of parenthesis
 noremap <silent> <Leader>p [(<ESC>%
 noremap <silent> <Leader>P )]<ESC>
@@ -227,7 +223,7 @@ noremap <silent> <Leader>z 1z=
 noremap <silent> <Leader>ù %
 
 "GO FUGITIVE
-noremap <Leader>d :Gvdiff<CR>
+noremap <Leader>d :Gvdiffsplit<CR>
 noremap <Leader>D :Gvdiff HEAD<CR>
 noremap <Leader>s :Gstatus<CR>
 
@@ -455,4 +451,8 @@ nnoremap <Leader>g :Rg<CR>
 nnoremap <Leader>H :Helptags<CR> 
 nnoremap <Leader>W :Windows<CR> 
 
-let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime']
+let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'package.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime', 'public/js']
+
+augroup myvimrc
+    autocmd BufEnter *.tsx set filetype=typescript
+augroup END
