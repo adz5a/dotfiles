@@ -75,9 +75,8 @@ set timeoutlen=500 ttimeoutlen=0
 set noswapfile
 
 "general text formatting
-set textwidth=120
-set nowrap
-
+set textwidth=0
+" TODO: set wrap for .md and other text file
 
 " for GUI line height
 set linespace=10
@@ -143,6 +142,10 @@ map <Up> :resize +5<CR>
 map <Right> :vertical resize +5<CR>
 map <Down> :resize -5<CR>
 
+" Open quickfix list instead of the Ex Mode
+" If needed prefix with Leader
+nnoremap Q :copen<CR>
+
 "remap gf to work without using the path option
 "<cfile> is the filename under the cursor
 map <Leader>gf :e <cfile><CR>
@@ -194,6 +197,9 @@ noremap <silent> Y y$
 "tabs
 "put current buffer into its own tab
 noremap <silent> <Leader>t :tab split<CR>
+"put current buffer into its own tab removing it from the current window, noop
+"if the buffer is the only presetn in the current window
+nnoremap <Leader>T :wincmd T<CR>
 "close current tab (does not close buffers)
 noremap <silent> <Leader>tq :tabclose<CR>
 "creates a new tab
@@ -345,27 +351,6 @@ function! ListContext (fieldview, ...)
 endfunction
 command! -count=5 -nargs=+ Context call ListContext(<count>, <f-args>)
 
-" Will select the tags for the symbol under the cursor
-function! SelectTags (split)
-    let l:current_word = expand("<cword>")
-    if a:split > 0
-        exe "stselect " . l:current_word
-    else
-        exe "tselect " . l:current_word
-    endif
-endfunction
-
-function! GitBranch (...)
-
-    exe "Git! branch " . join(a:000, " ")
-
-endfunction
-command! -nargs=* Gbranch call GitBranch(<f-args>)
-
-command! -nargs=0 W Grwite
-
-command! -nargs=0 S call system("xclip -sel clip -i", getreg("+"))
-
 function DeleteHiddenBuffers()
     let tpbl=[]
     call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
@@ -375,7 +360,6 @@ function DeleteHiddenBuffers()
 endfunction
 
 command! -bang CleanBuffers call DeleteHiddenBuffers()<CR>
-
 
 " copy current filepath (value of % register) to + register for clipboard use
 function! CopyFilepath ()
@@ -425,31 +409,20 @@ nnoremap <Leader>db gv:DB<CR>
 
 nnoremap <C-w>t :term<CR>
 
-nnoremap <Leader>wh :wincmd h<CR>
-nnoremap <Leader>wj :wincmd j<CR>
-nnoremap <Leader>wk :wincmd k<CR>
-nnoremap <Leader>wl :wincmd l<CR>
-
-nnoremap <Leader>wx :wincmd x<CR>
-nnoremap <Leader>wq :wincmd q<CR>
-nnoremap <Leader>wn :wincmd n<CR>
-nnoremap <Leader>ws :wincmd s<CR>
-
-nnoremap <Leader>wH :wincmd H<CR>
-nnoremap <Leader>wJ :wincmd J<CR>
-
-nnoremap <Leader>wT :wincmd T<CR>
-
 nnoremap <Leader>w= :wincmd =<CR>
 
+" fzf
 nnoremap <Leader>F :Files<CR>
 " list buffers
 nnoremap <Leader>b :Buffers<CR>
 " git-ls
 nnoremap <Leader>ls :GFiles<CR> 
-nnoremap <Leader>g :Rg<CR> 
-nnoremap <Leader>H :Helptags<CR> 
+nnoremap <Leader>rg :Rg<CR> 
+nnoremap <Leader>h :Helptags<CR> 
 nnoremap <Leader>W :Windows<CR> 
+
+" display git log as graph calling git alias
+nnoremap <Leader>gla :Git -p la
 
 let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'package.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime', 'public/js']
 

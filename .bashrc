@@ -123,15 +123,6 @@ tns () {
     tmux new-session -s $SESSION -n $WINDOW
 }
 
-tl-v () {
-    tmux select-layout even-vertical
-}
-
-tl-h () {
-    tmux select-layout even-horizontal
-}
-###
-
 tsc () {
     SESSION=$1
 
@@ -140,6 +131,24 @@ tsc () {
         echo 'Please specify a session name / id as per the tmux switch-session command'
     fi
     tmux switch-client -t $SESSION
+}
+
+tsw () {
+  WINDOW=$1
+  tmux select-window -t $WINDOW
+}
+
+tkw () {
+  WINDOW=$1
+  if [ -z $SESSION ]
+  then
+    tmux kill-window
+  fi
+  tmux kill-window -t $WINDOW
+}
+
+tnw () {
+  tmux new-window -n $1
 }
 
 layout () {
