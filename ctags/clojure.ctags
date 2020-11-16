@@ -1,0 +1,11 @@
+# Must be in $HOME/.ctags.d/clojure.ctags
+# Basic options
+# --recurse=yes
+# --tag-relative=yes
+--exclude=.git
+
+# Regex for Clojure
+--langmap=Clojure:.clj
+--langmap=Clojure:+.cljx
+--langmap=Clojure:+.cljs
+--langmap=Clojure:+.cljc

@@ -1,0 +1,4 @@
+# PHP
+# specify what should be parsed as php
+--langmap=php:.engine.inc.module.theme.install.php --PHP-kinds=+cf-v
+
