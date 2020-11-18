@@ -422,7 +422,7 @@ nnoremap <Leader>h :Helptags<CR>
 nnoremap <Leader>W :Windows<CR> 
 
 " display git log as graph calling git alias
-nnoremap <Leader>gla :Git -p la
+nnoremap <Leader>la :Git -p la<CR>
 
 let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lock.json', 'package.json', 'yarn.lock', '**/*.json', '.cpcache', '.shadow-cljs', 'cljs-runtime', 'public/js']
 
