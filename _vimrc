@@ -191,6 +191,9 @@ noremap <silent> <Leader>P )]<ESC>
 noremap <silent> <Leader>e :e!<CR>
 noremap <silent> <Leader>R :redraw!<CR>
 
+" display registers content
+noremap <silent> <Leader>r :reg<CR>
+
 "Yank
 noremap <silent> Y y$
 
