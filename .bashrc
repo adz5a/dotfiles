@@ -199,8 +199,14 @@ ed () {
 }
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-source /Users/antoinezimmermann/projects/alacritty/extra/completions/alacritty.bash
 
-export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_COMMAND="find -type f -not -path '*/\.git/*'"
+
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export LANGUAGE='en_US:en'
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export LC_CTYPE='UTF-8'

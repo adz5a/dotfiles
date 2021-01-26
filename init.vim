@@ -3,6 +3,7 @@
 set nocompatible
 syntax on
 filetype plugin indent on
+set clipboard=unnamedplus
 
 source ~/dotfiles/_vimrc
 source ~/dotfiles/colors.vim
@@ -34,6 +35,8 @@ call minpac#add("ludovicchabant/vim-gutentags")
 call minpac#add("tpope/vim-commentary")
 " call minpac#add("matze/vim-move")
 call minpac#add("mxw/vim-jsx")
+" is that needed if fzf is installed already ?
+call minpac#add("junegunn/fzf")
 call minpac#add("junegunn/fzf.vim")
 call minpac#add("Olical/conjure", {"rev": "v4.9.0"})
 call minpac#add("franbach/miramare")

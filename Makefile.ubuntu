@@ -1,0 +1,65 @@
+python3:
+	apt install python3 --upgrade
+	apt install python3-pip
+	pip3 install pip --upgrade
+
+nvim-remote:
+	# needs python3 installed
+	pip3 install neovim-remote
+
+bat:
+	curl -L https://github.com/sharkdp/bat/releases/download/v0.17.1/bat-musl_0.17.1_amd64.deb -o bat.deb
+	dpkg -i bat.deb
+
+src:
+	mkdir $(HOME)/src
+
+fzf:
+	git clone --depth 1 https://github.com/junegunn/fzf.git $(HOME)/src/fzf
+	$(HOME)/src/fzf/install
+
+locales:
+	# needs sudo
+	# ubuntu only
+	locale-gen "en_US.UTF-8"
+	dpkg-reconfigures locales
+
+ripgrep:
+	curl -L https://github.com/BurntSushi/ripgrep/releases/download/12.1.1/ripgrep_12.1.1_amd64.deb -o rg.deb
+	dpkg -i rg.deb
+	rm rg.deb
+
+terraform:
+	curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+	apt-add-repository 'deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main'	apt-get update
+	apt-get install terraform
+
+gitconfig:
+	ln -s $(HOME)/dotfiles/.gitconfig $(HOME)/.gitconfig
+
+tmux-config:
+	ln -s $(HOME)/dotfiles/.tmux.conf $(HOME)/.tmux.conf
+
+diff-so-fancy:
+	git clone https://github.com/so-fancy/diff-so-fancy $(HOME)/src/diff-so-fancy
+	ln -s $(HOME)/src/diff-so-fancy/diff-so-fancy $(HOME)/bin/diff-so-fancy
+
+aws:
+	mkdir -p $(HOME)/src/aws
+	curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o $(HOME)/src/awscliv2.zip
+	unzip $(HOME)/src/awscliv2.zip -d $(HOME)/src
+	rm $(HOME)/src/awscliv2.zip
+
+jq:
+	apt install jq -y
+
+ctags:
+	rm -rf src/ctags
+	git clone https://github.com/universal-ctags/ctags.git src/ctags
+	cd src/ctags && ./autogen.sh && ./configure
+	cd src/ctags && $(MAKE)
+	# install ctags on the system using this command
+	# sudo make install
+
+install-build-tools:
+	apt install -y automake autoconf libtool pkgconf
