@@ -200,7 +200,7 @@ ed () {
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export FZF_DEFAULT_COMMAND="find -type f -not -path '*/\.git/*'"
+export FZF_DEFAULT_COMMAND="find . -type f -not -path '*/\.git/*'"
 
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
