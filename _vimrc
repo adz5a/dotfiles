@@ -5,6 +5,7 @@ syntax on
 filetype plugin indent on
 
 
+set guifont=Monaco:h12
 "vim-move configuration
 "this allows to use <C-j> | <C-k> to move lines down / up
 let g:move_key_modifier = "C"

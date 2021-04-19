@@ -22,7 +22,7 @@ let $GIT_EDITOR="nvr -cc split --remote-wait"
 
 packadd minpac
 call minpac#init()
-call minpac#add("k-takata/minpac")
+call minpac#add("k-takata/minpac", {'type': 'opt'})
 call minpac#add("tpope/vim-fugitive")
 call minpac#add("tpope/vim-sensible")
 call minpac#add("tpope/vim-dadbod")
@@ -34,7 +34,6 @@ call minpac#add("ludovicchabant/vim-gutentags")
 " call minpac#add("adz5a/vim-hybrid-material")
 call minpac#add("tpope/vim-commentary")
 " call minpac#add("matze/vim-move")
-call minpac#add("mxw/vim-jsx")
 " is that needed if fzf is installed already ?
 call minpac#add("junegunn/fzf")
 call minpac#add("junegunn/fzf.vim")
@@ -43,6 +42,8 @@ call minpac#add("franbach/miramare")
 call minpac#add("neo4j-contrib/cypher-vim-syntax")
 call minpac#add("hashivim/vim-terraform")
 call minpac#add("tpope/vim-dispatch")
+call minpac#add("yuezk/vim-js")
+call minpac#add("maxmellon/vim-jsx-pretty")
 
 let g:dispatch_no_tmux_make=1
 let g:dispatch_no_tmux_start=1
