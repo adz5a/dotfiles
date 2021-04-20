@@ -17,7 +17,7 @@ let g:jsx_ext_required = 0
 "PATH CONFIGURATION
 " set path to file directory and
 " working directory
-" set path=.,,
+set path=.,,
 set rtp+=/usr/local/opt/fzf
 " These are generic folders where you usually don't want to  search
 set wildignore+=**/node_modules/**
@@ -90,7 +90,7 @@ set linespace=10
 " let g:netrw_liststyle=3
 
 "puts the mouse in command line mode effectively disabling it
-set mouse=c
+set mouse=a
 
 set pastetoggle=<F2>
 
@@ -137,6 +137,12 @@ imap <Up> <NOP>
 imap <Down> <NOP>
 imap <Left> <NOP>
 imap <Right> <NOP>
+
+
+" copy and paste using command key on MacOS
+map <D-c> "+y
+map <D-v> "+p
+
 
 "mapping for resizing splits
 map <Left> :vertical resize -5<CR>
