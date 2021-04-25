@@ -141,7 +141,6 @@ imap <Right> <NOP>
 
 " copy and paste using command key on MacOS
 map <D-c> "+y
-map <D-v> "+p
 
 
 "mapping for resizing splits
