@@ -25,7 +25,7 @@ White="\[\033[0;37m\]"        # White
 BBlack="\[\033[1;30m\]"       # Black
 BRed="\[\033[1;31m\]"         # Red
 BGreen="\[\033[1;32m\]"       # Green
-BYellow="\[\033[1;33m\]"      # Yellow
+BYellow="\[\033[01;33m\]"      # Yellow
 BBlue="\[\033[1;34m\]"        # Blue
 BPurple="\[\033[1;35m\]"      # Purple
 BCyan="\[\033[1;36m\]"        # Cyan
@@ -151,28 +151,11 @@ tnw () {
   tmux new-window -n $1
 }
 
-layout () {
-    # Choose a layout between us or uk.
-    # A keyboard layout is defined by mappings which can be modified by the
-    # current locale.
-    # The layouts were exported using xmodmap -pke
-    case $1 in
-        us)
-            LAYOUT="$CONFIG_HOME/desktop_us_layout.xmodmap"
-            ;;
-        uk)
-            LAYOUT="$CONFIG_HOME/desktop_uk_layout.xmodmap"
-            ;;
-        * )
-            echo "Commmand: layout [us|uk]"
-            exit 1
-            ;;
-    esac
-    xmodmap $LAYOUT
-}
-
 # PS1
-export PS1="$BWhite\$\e[m$BYellow\$(parse_git_branch)\e[m "
+BYELLOW='\[\033[01;33m\]'
+IBLACK='\[\033[0;90m\]'
+PS_CLEAR='\[\033[0m\]'
+export PS1="\n${BYELLOW}[\w]${PS_CLEAR}\n\$(parse_git_branch) "
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
