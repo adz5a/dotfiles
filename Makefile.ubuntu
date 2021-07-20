@@ -8,8 +8,9 @@ nvim-remote:
 	pip3 install neovim-remote
 
 bat:
-	curl -L https://github.com/sharkdp/bat/releases/download/v0.17.1/bat-musl_0.17.1_amd64.deb -o bat.deb
+	curl -L https://github.com/sharkdp/bat/releases/download/v0.18.1/bat-musl_0.18.1_amd64.deb -o bat.deb
 	dpkg -i bat.deb
+	rm bat.deb
 
 src:
 	mkdir $(HOME)/src

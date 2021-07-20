@@ -87,7 +87,7 @@ set linespace=10
 ":Explore commands
 " Disabled for the moment as vim-vinegar is handling netrw for me
 " let g:netrw_banner=0
-" let g:netrw_liststyle=3
+let g:netrw_liststyle=3
 
 "puts the mouse in command line mode effectively disabling it
 set mouse=a
@@ -379,13 +379,7 @@ endfunction
 nnoremap <Leader>cp :call CopyFilepath()<CR>
 
 " Set wrap options when arg is present, else removes them
-function! ToggleWrap(bang)
-    if empty(a:bang)
-        set wrap linebreak breakindent
-    else
-        set nowrap nolinebreak nobreakindent
-    endif
-endfunction
+set wrap linebreak breakindent
 
 command! -bang Wrap call ToggleWrap(<bang>0)<CR>
 

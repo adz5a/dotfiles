@@ -37,7 +37,7 @@ call minpac#add("tpope/vim-commentary")
 " is that needed if fzf is installed already ?
 call minpac#add("junegunn/fzf")
 call minpac#add("junegunn/fzf.vim")
-call minpac#add("Olical/conjure", {"rev": "v4.9.0"})
+call minpac#add("Olical/conjure", {"rev": "v4.21.0"})
 call minpac#add("franbach/miramare")
 call minpac#add("neo4j-contrib/cypher-vim-syntax")
 call minpac#add("hashivim/vim-terraform")
