@@ -10,6 +10,9 @@ source ~/dotfiles/colors.vim
 
 " Mappings for neovim
 
+set backup
+set writebackup
+
 " Use <Esc> to leave terminal mode
 tnoremap <Esc> <C-\><C-n>
 " Use "verbatim" mode to send the Esc sequence in terminal mode

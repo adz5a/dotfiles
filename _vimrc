@@ -87,7 +87,7 @@ set linespace=10
 ":Explore commands
 " Disabled for the moment as vim-vinegar is handling netrw for me
 " let g:netrw_banner=0
-let g:netrw_liststyle=3
+let g:netrw_liststyle=0
 
 "puts the mouse in command line mode effectively disabling it
 set mouse=a
@@ -424,6 +424,9 @@ nnoremap <Leader>ls :GFiles<CR>
 nnoremap <Leader>rg :Rg<CR> 
 nnoremap <Leader>h :Helptags<CR> 
 nnoremap <Leader>W :Windows<CR> 
+cnoremap <C-n> :new %:p:h
+
+
 
 " display git log as graph calling git alias
 nnoremap <Leader>la :Git -p la<CR>
@@ -433,3 +436,9 @@ let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lo
 augroup myvimrc
     autocmd BufEnter *.tsx set filetype=typescript
 augroup END
+
+function! SearchHighlighted ()
+  yank
+endfun
+
+" vnoremap F :call SearchHighlighted()<CR>
