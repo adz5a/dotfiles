@@ -87,7 +87,7 @@ set linespace=10
 ":Explore commands
 " Disabled for the moment as vim-vinegar is handling netrw for me
 " let g:netrw_banner=0
-let g:netrw_liststyle=0
+" let g:netrw_liststyle=3
 
 "puts the mouse in command line mode effectively disabling it
 set mouse=a
@@ -241,7 +241,7 @@ noremap <silent> <Leader>ù %
 "GO FUGITIVE
 noremap <Leader>d :Gvdiffsplit<CR>
 noremap <Leader>D :Gvdiff HEAD<CR>
-noremap <Leader>s :Gstatus<CR>
+noremap <Leader>s :Git<CR>
 
 "Toggle listchar
 noremap <Leader>c :set list<CR>
@@ -371,17 +371,12 @@ endfunction
 
 command! -bang CleanBuffers call DeleteHiddenBuffers()<CR>
 
-" copy current filepath (value of % register) to + register for clipboard use
+" copy current filepath (value of % register) to + and unnamed registers for clipboard use
 function! CopyFilepath ()
     let @+ = @%
     let @" = @%
 endfunction
 nnoremap <Leader>cp :call CopyFilepath()<CR>
-
-" Set wrap options when arg is present, else removes them
-set wrap linebreak breakindent
-
-command! -bang Wrap call ToggleWrap(<bang>0)<CR>
 
 " Git blame mappings
 " The first is to run Gblame, the second to run it without looking for changes
@@ -424,9 +419,9 @@ nnoremap <Leader>ls :GFiles<CR>
 nnoremap <Leader>rg :Rg<CR> 
 nnoremap <Leader>h :Helptags<CR> 
 nnoremap <Leader>W :Windows<CR> 
+
 cnoremap <C-n> :new %:p:h
-
-
+nnoremap <Leader>rm :!rm %<CR> 
 
 " display git log as graph calling git alias
 nnoremap <Leader>la :Git -p la<CR>
@@ -436,9 +431,3 @@ let g:gutentags_ctags_exclude = ['node_modules', 'resources', 'doc', 'package-lo
 augroup myvimrc
     autocmd BufEnter *.tsx set filetype=typescript
 augroup END
-
-function! SearchHighlighted ()
-  yank
-endfun
-
-" vnoremap F :call SearchHighlighted()<CR>
